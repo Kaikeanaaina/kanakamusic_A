@@ -1,0 +1,265 @@
+<ion-view title="RecordLabels" id="page21" ng-init="getAllRecordLabels()">
+    <ion-content padding="true" class="has-header">
+
+        <form class="list">
+            <label class="item item-input" name="Search">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder="search">
+            </label>
+        </form>
+
+        <form class="list">
+
+            <a ui-sref="menu.addNewRecordLabel" id="home-button18" class="button button-positive button-small button-block">Add New Record Label</a>
+        </form>
+
+        <ion-list>
+            <ion-item class="item-divider">#</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in NumberRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">A</ion-item>
+
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in ARecordLabel | orderBy:'name'">
+                <div class="row responsive-sm">
+                  <div>
+                    <a>{{recordLabel.name}}</a>
+                  </div>
+                </div>
+            </ion-item>
+
+            <ion-item class="item-divider">B</ion-item>
+
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in BRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">C</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in CRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">D</ion-item>
+
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in DRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">E</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in ERecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">F</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in FRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">G</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in GRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">H</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in HRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">I</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in IRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">J</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in JRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">K</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in KRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">L</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in LRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">M</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in MRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">N</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in NRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">O</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in ORecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">P</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in PRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">Q</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in QRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">R</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in RRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">S</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in SRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">T</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in TRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">U</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in URecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">V</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in VRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">W</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in WRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">X</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in XRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">Y</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in YRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">Z</ion-item>
+            <ion-item ng-href="/#/side-menu/recordLabel/edit/{{recordLabel.id}}" ng-repeat="recordLabel in ZRecordLabel | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{recordLabel.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+        </ion-list>
+    </ion-content>
+</ion-view>

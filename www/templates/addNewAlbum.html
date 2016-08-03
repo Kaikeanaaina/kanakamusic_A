@@ -1,0 +1,27 @@
+<ion-view title="Add New Album" id="page9" ng-init="getAllArtists(); getAllRecordLabels()">
+    <ion-content padding="true" class="has-header">
+        <form class="list">
+            <label class="item item-input">
+                <span class="input-label">Album Title</span>
+                <input type="text" placeholder="Album Title" ng-model="album.title">
+            </label>
+            <label class="item item-select" name="artist">
+                <span class="input-label">Artist</span>
+                <select ng-model="album.ArtistId">
+                    <option ng-repeat="artist in Artists | orderBy:'name'"  ng-value="{{artist.id}}" value="{{artist.id}}">{{artist.name}}</option>
+                </select>
+            </label>
+            <label class="item item-select" name="artist">
+                <span class="input-label">Record Label</span>
+                <select ng-model="album.RecordLabelId">
+                    <option ng-repeat="recordLabel in RecordLabels | orderBy:'name'"  ng-value="{{recordLabel.id}}" value="{{recordLabel.id}}">{{recordLabel.name}}</option>
+                </select>
+            </label>
+            <label class="item item-input" name="description">
+                <span class="input-label">Description</span>
+                <textarea placeholder="Description about the album" ng-model="album.description"> </textarea>
+            </label>
+            <button id="addNewAlbum-button10" class="button button-balanced  button-block" ng-click="addAlbum(album); album = null">Submit New Album</button>
+        </form>
+    </ion-content>
+</ion-view>

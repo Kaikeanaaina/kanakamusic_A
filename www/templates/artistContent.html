@@ -1,0 +1,44 @@
+<ion-view title="{{Artist.name}}" id="page14" ng-init="getArtist()">
+    <ion-content padding="true" class="has-header">
+
+        <h1 id="artistInformation-heading2" style="color:#000000;">{{Artist.name}}</h1>
+
+        <div>
+            <img src="img/h65ujQrLQ4ejAA1h5qOM_band.jpg" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+        </div>
+        <div class="spacer" style="width: 300px; height: 10px;"></div>
+        <div id="artistInformation-markdown11" style="color:#000000;">
+            <p>{{Artist.description}}</p>
+        </div>
+
+        </div>
+        <a ui-sref="menu.bandMembers" id="artistInformation-button39" class="button button-positive  button-block">Band Members</a>
+        <ion-list></ion-list>
+
+
+        <ion-list>
+            <ion-item class="item-divider">Album</ion-item>
+            <ion-item ng-href="/#/side-menu/album/{{album.id}}" ng-repeat="album in Albums">{{album.title}}</ion-item>
+        </ion-list>
+
+        <div class="spacer" style="width: 300px; height: 27px;"></div>
+
+        <ion-list>
+            <ion-item class="item-divider">Songs</ion-item>
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in Songs">{{song.title}}</ion-item>
+        </ion-list>
+
+        <div class="spacer" style="width: 300px; height: 10px;"></div>
+        <div style="color:#000000;">
+            <p>Facebook:   {{Artist.facebook}}</p>
+        </div>
+        <div style="color:#000000;">
+            <p>Instagram:   {{Artist.instagram}}</p>
+        </div>
+        <div style="color:#000000;">
+            <p>Twitter:   {{Artist.twitter}}</p>
+        </div>
+        <div style="color:#000000;">
+            <p>Booking Contact:   {{Artist.bookingPhoneNumber}} - {{Artist.bookingEmail}}</p>
+    </ion-content>
+</ion-view>

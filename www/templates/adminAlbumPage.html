@@ -1,0 +1,22 @@
+<ion-view title="Album Page" id="page17" ng-init="getAdminAlbum()">
+    <ion-content padding="true" class="has-header">
+        <a ng-href="/#/adminSide-menu/album/edit/{{Album.id}}" id="albumPage-button33" class="button button-energized button-small button-block">Edit Album</a>
+
+        <h1 id="albumPage-heading3" style="color:#000000;">{{Album.title}}</h1>
+        <p>{{Artist.name}}</p>
+        <div style="line-height: 250px; border: 1px solid rgb(238, 238, 238); border-radius: 3px; text-align: center; background-color: rgb(255, 255, 255);">
+            <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;"></i>
+        </div>
+        <div id="albumPage-markdown9" style="color:#000000;">
+            <p>{{Album.description}}</p>
+        </div>
+
+        <ion-list>
+            <ion-item class="item-divider">Songs</ion-item>
+            <ion-item ng-href="/#/side-menu/song/content/{{song.id}}" ng-repeat="song in Songs">{{song.title}}</ion-item>
+        </ion-list>
+
+        <div class="spacer" style="width: 300px; height: 5px;"></div>
+        <p>{{RecordLabel.name}}</p>
+    </ion-content>
+</ion-view>

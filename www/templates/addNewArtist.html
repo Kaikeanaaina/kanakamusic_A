@@ -1,0 +1,46 @@
+<ion-view title="Add New Artist" id="page7">
+    <ion-content padding="true" class="has-header">
+        <form class="list">
+            <label class="item item-input" name="Artist">
+                <span class="input-label">Artist Name</span>
+                <input type="text" placeholder="Artist Name" ng-model="artist.name">
+            </label>
+
+            <label class="item item-select" name="type">
+                <span class="input-label">Type</span>
+                <select ng-model="artist.type">
+                    <option ng-value="hawaiian" value="hawaiian">Hawaiian</option>
+                    <option ng-value="contemporary" value="contemporary">Contemporary</option>
+                </select>
+            </label>
+
+            <label class="item item-input" name="description" for="description">
+                <span class="input-label">Description</span>
+                <textarea placeholder="Description" ng-model="artist.description"> </textarea>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Facebook</span>
+                <input type="text" placeholder="facebook link" ng-model="artist.facebook">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Instagram</span>
+                <input type="text" placeholder="@username" ng-model="artist.instagram">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Twitter</span>
+                <input type="text" placeholder="@username" ng-model="artist.twitter">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Booking Phone Number</span>
+                <input type="text" placeholder="(111)222-3333" ng-model="artist.bookingPhoneNumber">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Booking Email</span>
+                <input type="text" placeholder="email@kanakamusic.com" ng-model="artist.bookingEmail">
+            </label>
+
+            <button id="addNewArtist-button19" class="button button-balanced button-large button-block" ng-click="addArtist(artist); artist = null">Submit New Artist</button>
+
+        </form>
+    </ion-content>
+</ion-view>

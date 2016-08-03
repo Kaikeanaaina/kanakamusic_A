@@ -1,0 +1,68 @@
+<ion-view title="Edit {{Artist.name}}" id="page16" ng-init="getArtistToEdit()">
+    <ion-content padding="true" class="has-header">
+        <form class="list">
+
+            <ion-toggle ng-model="artist.visibility" toggle-class="toggle-calm">Visible</ion-toggle>
+            <p>Change Visibility Status to : {{artist.visibility}}</p>
+            <p>Current Visibility Status : {{Artist.visibility}}</p>
+            <br></br>
+
+            <label class="item item-input" name="Artist">
+                <span class="input-label">Artist Name</span>
+                <input type="text" placeholder="{{Artist.name}}" ng-model="artist.name">
+            </label>
+
+            <div class="spacer" style="width: 300px; height: 7px;"></div>
+
+            <label class="item item-select">
+                <span class="input-label">Record Label</span>
+                <select>
+                    <option></option>
+                </select>
+            </label>
+
+            <button id="editArtist-button27" class="button button-positive  button-block">Add New Record Label</button>
+
+            <p>old artist type: <strong>{{Artist.type}}</strong></p>
+            <label class="item item-select" name="type">
+                <span class="input-label">Type</span>
+                <select ng-model="artist.type">
+                    <option ng-value="hawaiian" value="hawaiian">Hawaiian</option>
+                    <option ng-value="english" value="english">English</option>
+                </select>
+            </label>
+
+            <label class="item item-input" name="description" for="description">
+                <span class="input-label">Description</span>
+                <textarea placeholder="{{Artist.description}}" id="editDescription" ng-model="artist.description"></textarea>
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Facebook</span>
+                <input type="text" placeholder="{{Artist.facebook}}" ng-model="artist.facebook">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Instagram</span>
+                <input type="text" placeholder="{{Artist.instagram}}" ng-model="artist.instagram">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Twitter</span>
+                <input type="text" placeholder="{{Artist.twitter}}" ng-model="artist.twitter">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Booking Phone Number</span>
+                <input type="text" placeholder="{{Artist.bookingPhoneNumber}}" ng-model="artist.bookingPhoneNumber">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Booking Email</span>
+                <input type="text" placeholder="{{Artist.bookingEmail}}" ng-model="artist.bookingEmail">
+            </label>
+
+            <button id="editArtist-button28" class="button button-balanced button-large button-block" ng-click="editArtist(artist); artist = null ">Edit Artist</button>
+
+            <div class="spacer" style="width: 300px; height: 228px;"></div>
+
+            <button id="editArtist-button30" class="button button-assertive  button-block" ng-click="deleteArtist()">Delete Artist</button>
+
+        </form>
+    </ion-content>
+</ion-view>

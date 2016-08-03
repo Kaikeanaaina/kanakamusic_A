@@ -1,0 +1,279 @@
+<div ng-init="publisherFieldset=false; recordLabelFieldset=false; artistFieldset=false; albumFieldset=false">
+  <div>
+
+    <fieldset>
+      <div>
+        <label for="song_title">SONG TITLE</label>
+        <input id="song_title "type="text" max-length="" ng-model="song.title">
+        <br>
+      </div>
+
+      <div ng-controller="ArtistController" ng-init="getAllArtists()">
+        <select type="text" name="artistSelect" id="artistSelect" ng-model="song.ArtistId">
+          <option ng-repeat="artist in Artists | orderBy:'title'" value="{{artist.id}}">{{artist.title}}</option>
+        </select>
+
+        <div>
+          <button type="button" ng-click="artistFieldset=true">Add New Artist</button>
+        </div>
+
+        <div ng-show="artistFieldset">
+          <fieldset>
+
+            <div>
+              <p>New Artist</p>
+              <label for="artist_name">Artist Name</label>
+              <input id="artist_name" type="text" ng-model="artist.title">
+              <br>
+            </div>
+
+            <div ng-controller="RecordLabelController" ng-init="getAllRecordLabels()">
+
+              <select type="text" name="recordLabelSelect" id="recordLabelSelect" ng-model="artist.RecordLabelId">
+                <option ng-repeat="recordLabel in RecordLabels | orderBy:'name'" value="{{recordLabel.id}}">{{recordLabel.name}}</option>
+              </select>
+
+              <div>
+                <button type="button" ng-click="recordLabelFieldset=!recordLabelFieldset">Add New Record Label</button>
+              </div>
+
+              <div ng-show="recordLabelFieldset">
+                <fieldset>
+
+                  <div>
+                    <p>New Record Label</p>
+                    <label for="record_label_name">Record Label Name</label>
+                    <input id="record_label_name" type="text" ng-model="recordLabel.name">
+                    <br>
+                  </div>
+
+                  <div>
+                    <input class="formSubmitBtn" type="submit" value="Submit" ng-click=" postNewRecordLabel(recordLabel); recordLabel = null; recordLabelFieldset=!recordLabelFieldset">
+                    <button ng-click="recordLabelFieldset= false">cancel</button>
+                  </div>
+
+                </fieldset>
+              </div>
+            </div>
+
+            <div ng-controller="PublisherController" ng-init="getAllPublishers()">
+
+              <select type="text" name="publisherSelect" id="publisherSelect" ng-model="artist.PublisherId">
+                <option ng-repeat="publisher in Publishers | orderBy:'name'" value="{{publisher.id}}">{{publisher.name}}</option>
+              </select>
+
+              <div>
+                <button type="button" ng-click="publisherFieldset=!publisherFieldset">Add New Publisher</button>
+              </div>
+
+              <div ng-show="publisherFieldset">
+                <fieldset>
+
+                  <div>
+                    <p>New Publisher</p>
+                    <label for="publisher_name">Publisher Name</label>
+                    <input id="publisher_name" type="text" ng-model="publisher.name">
+                    <br>
+                  </div>
+
+                  <div>
+                    <input class="formSubmitBtn" type="submit" value="Submit" ng-click=" postNewPublisher(publisher); publisher = null; publisherFieldset=!publisherFieldset">
+                    <button ng-click="publisherFieldset= false">cancel</button>
+                  </div>
+
+                </fieldset>
+              </div>
+            </div>
+
+            <br>
+
+            <div>
+              <input class="formSubmitBtn" type="submit" value="Submit" ng-click="artistFieldset=false; postNewArtist(artist); artist = null">
+              <button ng-click="artistFieldset=false">cancel</button>
+            </div>
+
+          </fieldset>
+        </div>
+      </div>
+
+      <div ng-controller="AlbumController" ng-init="getAllAlbums()">
+
+        <button type="button" ng-click="albumFieldset=true">Add New Album</button>
+
+        <div ng-show="albumFieldset">
+          <fieldset>
+            <div>
+              <p>New Album</p>
+              <label for="album_name">Album Title</label>
+              <input type="text" id="album_title" ng-model="album.title">
+              <br>
+              <div>
+                <input class="formSubmitBtn" type="submit" value="Submit" ng-click="albumFieldset=false; postNewAlbum(album); album = null">
+                <button ng-click="albumFieldset=false">cancel</button>
+              </div>
+
+            </div>
+          </fieldset>
+        </div>
+
+        <br>
+
+        <div class="albumLists">
+          <div ng-repeat="album in Albums">
+              <div>{{album.title}}</div>
+          </div>
+        </div>
+
+        <ul class="albums">
+          <li ng-repeat="album in Albums | filter:album.ArtistId=song.ArtistId | orderBy:'title'" >
+            <h4 class="book_title">
+              {{book.title}}
+            </h4>
+            <p class="book_author">{{book.author}}</p>
+          </li>
+        </ul>
+
+        list of Albums
+      </div>
+
+      <div>
+        <label for="song_description">Description</label>
+        <input id="song_description "type="text" ng-model="song.description">
+        <br>
+      </div>
+
+      <div class="newSongLineList">
+        <div>
+          <label for="song_line1">line1</label>
+          <input id="song_line1 "type="text" ng-model="song.line1">
+          <br>
+        </div>
+
+        <div>
+          <label for="song_line2">line2</label>
+          <input id="song_line2 "type="text" ng-model="song.line2">
+          <br>
+        </div>
+
+        <label for="song_line3">line3</label>
+        <input id="song_line3"type="text" ng-model="song.line3">
+        <br>
+
+        <label for="song_line4">line4</label>
+        <input id="song_line4"type="text" ng-model="song.line4">
+        <br>
+
+        <label for="song_line5">line5</label>
+        <input id="song_line5"type="text" ng-model="song.line5">
+        <br>
+
+        <label for="song_line6">line6</label>
+        <input id="song_line6"type="text" ng-model="song.line6">
+        <br>
+
+        <label for="song_line7">line7</label>
+        <input id="song_line7"type="text" ng-model="song.line7">
+        <br>
+
+        <label for="song_line8">line8</label>
+        <input id="song_line8"type="text" ng-model="song.line8">
+        <br>
+
+        <label for="song_line9">line9</label>
+        <input id="song_line9"type="text" ng-model="song.line9">
+        <br>
+
+        <label for="song_line10">line10</label>
+        <input id="song_line10"type="text" ng-model="song.line10">
+        <br>
+
+        <label for="song_line11">line11</label>
+        <input id="song_line11 "type="text" ng-model="song.line11">
+        <br>
+
+        <label for="song_line12">line12</label>
+        <input id="song_line12 "type="text" ng-model="song.line12">
+        <br>
+
+        <label for="song_line13">line13</label>
+        <input id="song_line13 "type="text" ng-model="song.line13">
+        <br>
+
+        <label for="song_line14">line14</label>
+        <input id="song_line14 "type="text" ng-model="song.line14">
+        <br>
+
+        <label for="song_line15">line15</label>
+        <input id="song_line15 "type="text" ng-model="song.line15">
+        <br>
+
+        <label for="song_line16">line16</label>
+        <input id="song_line16 "type="text" ng-model="song.line16">
+        <br>
+
+        <label for="song_line17">line17</label>
+        <input id="song_line17 "type="text" ng-model="song.line17">
+        <br>
+
+        <label for="song_line18">line18</label>
+        <input id="song_line18 "type="text" ng-model="song.line18">
+        <br>
+
+        <label for="song_line19">line19</label>
+        <input id="song_line19 "type="text" ng-model="song.line19">
+        <br>
+
+        <label for="song_line20">line20</label>
+        <input id="song_line20 "type="text" ng-model="song.line20">
+        <br>
+
+        <label for="song_line21">line21</label>
+        <input id="song_line21 "type="text" ng-model="song.line21">
+        <br>
+
+        <label for="song_line22">line22</label>
+        <input id="song_line22 "type="text" ng-model="song.line22">
+        <br>
+
+        <label for="song_line23">line23</label>
+        <input id="song_line23"type="text" ng-model="song.line23">
+        <br>
+
+        <label for="song_line24">line24</label>
+        <input id="song_line24"type="text" ng-model="song.line24">
+        <br>
+
+        <label for="song_line25">line25</label>
+        <input id="song_line25"type="text" ng-model="song.line25">
+        <br>
+
+        <label for="song_line26">line26</label>
+        <input id="song_line26"type="text" ng-model="song.line26">
+        <br>
+
+        <label for="song_line27">line27</label>
+        <input id="song_line27"type="text" ng-model="song.line27">
+        <br>
+
+        <label for="song_line28">line28</label>
+        <input id="song_line28"type="text" ng-model="song.line28">
+        <br>
+
+        <label for="song_line29">line29</label>
+        <input id="song_line29"type="text" ng-model="song.line29">
+        <br>
+
+        <label for="song_line30">line30</label>
+        <input id="song_line30"type="text" ng-model="song.line30">
+        <br>
+      </div>
+
+
+      <input class="formSubmitBtn" type="submit" value="Submit" ng-click="postButton(song); song = null">
+
+    </fieldset>
+  </div>
+
+
+
+</div>

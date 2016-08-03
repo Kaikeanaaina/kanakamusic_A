@@ -1,0 +1,39 @@
+<ion-view title="Edit Album" id="page19" ng-init="getAdminAlbumToEdit()">
+    <ion-content padding="true" class="has-header">
+        <form class="list">
+            <ion-toggle ng-model="album.visibility" toggle-class="toggle-calm">Visible</ion-toggle>
+            <p>Change Visibility Status to : {{album.visibility}}</p>
+            <p>Current Visibility Status : {{Album.visibility}}</p>
+            <br></br>
+            <label class="item item-input">
+                <span class="input-label">Album Title</span>
+                <input type="text" placeholder="{{Album.title}}" ng-model="album.title">
+            </label>
+            <label class="item item-select" name="artist">
+                <span class="input-label">Artist</span>
+                <select>
+                    <option></option>
+                </select>
+            </label>
+            <label class="item item-select" name="recordLabel">
+                <span class="input-label">Record Label</span>
+                <select>
+                    <option></option>
+                </select>
+            </label>
+            <label class="item item-select" name="publisher">
+                <span class="input-label">Publisher</span>
+                <select>
+                    <option></option>
+                </select>
+            </label>
+            <label class="item item-input" name="description">
+                <span class="input-label">Description</span>
+                <textarea placeholder="{{Album.description}}" ng-model="album.description"> </textarea>
+            </label>
+            <button id="editAlbum-button34" class="button button-balanced  button-block" ng-click="editAlbum(album); album = null">Edit Album</button>
+        </form>
+        <div class="spacer" style="width: 300px; height: 230px;"></div>
+        <button id="editAlbum-button35" class="button button-assertive  button-block" ng-click="deleteAlbum()">Delete Album</button>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,265 @@
+<ion-view title="Hawaiian Artists" id="page1">
+    <ion-content padding="true" class="has-header" ng-init="getAllArtists()">
+
+
+        <form class="list">
+            <a ui-sref="adminMenu.addNewArtist" id="home-button18" class="button button-positive button-small button-block">Add New Artist</a>
+        </form>
+
+        <form class="list">
+            <label class="item item-input" name="Search">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="search" placeholder="search">
+            </label>
+        </form>
+
+        <ion-list>
+            <ion-item class="item-divider">#</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in NumberHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">A</ion-item>
+
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in AHawaiianArtist | orderBy:'name'">
+                <div class="row responsive-sm">
+                  <div>
+                    <a>{{artist.name}}</a>
+                  </div>
+                </div>
+            </ion-item>
+
+            <ion-item class="item-divider">B</ion-item>
+
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in BHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">C</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in CHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">D</ion-item>
+
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in DHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">E</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in EHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">F</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in FHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">G</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in GHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">H</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in HHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">I</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in IHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">J</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in JHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">K</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in KHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">L</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in LHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">M</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in MHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">N</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in NHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">O</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in OHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">P</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in PHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">Q</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in QHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">R</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in RHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">S</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in SHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">T</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in THawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">U</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in UHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">V</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in VHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">W</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in WHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">X</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in XHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">Y</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in YHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+            <ion-item class="item-divider">Z</ion-item>
+            <ion-item ng-href="/#/adminSide-menu/artist/content/{{artist.id}}" ng-repeat="artist in ZHawaiianArtist | orderBy:'name'">
+              <div class="row responsive-sm">
+                <div>
+                  <a>{{artist.name}}</a>
+                </div>
+              </div>
+            </ion-item>
+
+        </ion-list>
+    </ion-content>
+</ion-view>

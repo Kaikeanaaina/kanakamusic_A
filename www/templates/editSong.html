@@ -1,0 +1,186 @@
+<ion-view title="Edit: {{Song.title}}" id="page15" ng-init="getSongToEdit(); getAllArtists(); getAllAlbums()">
+    <ion-content padding="true" class="has-header">
+        <form class="list">
+
+            <input type="hidden" ng-model="song.id"></input>
+
+            <ion-toggle ng-model="song.visibility" toggle-class="toggle-calm">Visible</ion-toggle>
+            <p>Change Visibility Status to : {{song.visibility}}</p>
+            <p>Current Visibility Status : {{Song.visibility}}</p>
+            <br></br>
+
+            <label class="item item-input" name="songTitle">
+                <span class="input-label">Song Title</span>
+                <input type="text" placeholder="{{Song.title}}" ng-model="song.title">
+            </label>
+
+            <div class="spacer" style="width: 300px; height: 15px;"></div>
+
+
+            <p>old artist: <strong>{{Artist.name}}</strong></p>
+            <label class="item item-select" name="artist">
+                <span class="input-label">Artist</span>
+                <select ng-model="song.ArtistId">
+                    <option ng-repeat="artist in Artists | orderBy:'name'" ng-value="{{artist.id}}" value="{{artist.id}}">{{artist.name}}</option>
+                </select>
+            </label>
+
+
+            <a ui-sref="menu.addNewArtist" id="editSong-button23" style="font-weight:300;" class="button button-positive button-small button-block">Add New Artist</a>
+
+            <p>old album: <strong>{{Album.title}}</strong></p>
+            <label class="item item-select" name="album">
+                <span class="input-label">Album</span>
+                <select ng-model="song.AlbumId">
+                    <option ng-repeat="album in Albums | orderBy:'title'" name='kainoa' ng-value="{{album.id}}" value="{{album.id}}">{{album.title}}</option>
+                </select>
+            </label>
+
+            <a ui-sref="menu.addNewAlbum" id="editSong-button24" style="font-weight:300;" class="button button-positive button-small button-block">Add New Album</a>
+
+            <p>old song type: <strong>{{Song.type}}</strong></p>
+            <label class="item item-select" name="type">
+                <span class="input-label">Type</span>
+                <select ng-model="song.type">
+                    <option ng-value="hawaiian" value="hawaiian">Hawaiian</option>
+                    <option ng-value="contemporary" value="contemporary">Contemporary</option>
+                </select>
+            </label>
+
+            <label class="item item-input" name="description">
+                <span class="input-label">Description</span>
+                <textarea placeholder="{{Song.description}}" ng-model="song.description"></textarea>
+            </label>
+
+            <div class="spacer" style="width: 300px; height: 8px;"></div>
+
+            <label class="item item-input" name="line1">
+                <span class="input-label">Line 1</span>
+                <input type="text" placeholder="{{Song.line1}}" ng-model="song.line1">
+            </label>
+            <label class="item item-input" name="line2">
+                <span class="input-label">Line 2</span>
+                <input type="text" placeholder="{{Song.line2}}" ng-model="song.line2">
+            </label>
+            <label class="item item-input" name="line3">
+                <span class="input-label">Line 3</span>
+                <input type="text" placeholder="{{Song.line3}}" ng-model="song.line3">
+            </label>
+            <label class="item item-input" name="line4">
+                <span class="input-label">Line 4</span>
+                <input type="text" placeholder="{{Song.line4}}" ng-model="song.line4">
+            </label>
+            <label class="item item-input" name="line5">
+                <span class="input-label">Line 5</span>
+                <input type="text" placeholder="{{Song.line5}}" ng-model="song.line5">
+            </label>
+            <label class="item item-input" name="line6">
+                <span class="input-label">Line 6</span>
+                <input type="text" placeholder="{{Song.line6}}" ng-model="song.line6">
+            </label>
+            <label class="item item-input" name="line7">
+                <span class="input-label">Line 7</span>
+                <input type="text" placeholder="{{Song.line7}}" ng-model="song.line7">
+            </label>
+            <label class="item item-input" name="line8">
+                <span class="input-label">Line 8</span>
+                <input type="text" placeholder="{{Song.line8}}" ng-model="song.line8">
+            </label>
+            <label class="item item-input" name="line9">
+                <span class="input-label">Line 9</span>
+                <input type="text" placeholder="{{Song.line9}}" ng-model="song.line9">
+            </label>
+            <label class="item item-input" name="line10">
+                <span class="input-label">Line 10</span>
+                <input type="text" placeholder="{{Song.line10}}" ng-model="song.line10">
+            </label>
+            <label class="item item-input" name="line11">
+                <span class="input-label">Line 11</span>
+                <input type="text" placeholder="{{Song.line11}}" ng-model="song.line11">
+            </label>
+            <label class="item item-input" name="line12">
+                <span class="input-label">Line 12</span>
+                <input type="text" placeholder="{{Song.line12}}" ng-model="song.line12">
+            </label>
+            <label class="item item-input" name="line13">
+                <span class="input-label">Line 13</span>
+                <input type="text" placeholder="{{Song.line13}}" ng-model="song.line13">
+            </label>
+            <label class="item item-input" name="line14">
+                <span class="input-label">Line 14</span>
+                <input type="text" placeholder="{{Song.line14}}" ng-model="song.line14">
+            </label>
+            <label class="item item-input" name="line15">
+                <span class="input-label">Line 15</span>
+                <input type="text" placeholder="{{Song.line15}}" ng-model="song.line15">
+            </label>
+            <label class="item item-input" name="line16">
+                <span class="input-label">Line 16</span>
+                <input type="text" placeholder="{{Song.line16}}" ng-model="song.line16">
+            </label>
+            <label class="item item-input" name="line17">
+                <span class="input-label">Line 17</span>
+                <input type="text" placeholder="{{Song.line17}}" ng-model="song.line17">
+            </label>
+            <label class="item item-input" name="line18">
+                <span class="input-label">Line 18</span>
+                <input type="text" placeholder="{{Song.line18}}" ng-model="song.line18">
+            </label>
+            <label class="item item-input" name="line19">
+                <span class="input-label">Line 19</span>
+                <input type="text" placeholder="{{Song.line19}}" ng-model="song.line19">
+            </label>
+            <label class="item item-input" name="line20">
+                <span class="input-label">Line 20</span>
+                <input type="text" placeholder="{{Song.line20}}" ng-model="song.line20">
+            </label>
+            <label class="item item-input" name="line21">
+                <span class="input-label">Line 21</span>
+                <input type="text" placeholder="{{Song.line21}}" ng-model="song.line21">
+            </label>
+            <label class="item item-input" name="line22">
+                <span class="input-label">Line 22</span>
+                <input type="text" placeholder="{{Song.line22}}" ng-model="song.line22">
+            </label>
+            <label class="item item-input" name="line23">
+                <span class="input-label">Line 23</span>
+                <input type="text" placeholder="{{Song.line23}}" ng-model="song.line23">
+            </label>
+            <label class="item item-input" name="line24">
+                <span class="input-label">Line 24</span>
+                <input type="text" placeholder="{{Song.line24}}" ng-model="song.line24">
+            </label>
+            <label class="item item-input" name="line25">
+                <span class="input-label">Line 25</span>
+                <input type="text" placeholder="{{Song.line25}}" ng-model="song.line25">
+            </label>
+            <label class="item item-input" name="line26">
+                <span class="input-label">Line 26</span>
+                <input type="text" placeholder="{{Song.line26}}" ng-model="song.line26">
+            </label>
+            <label class="item item-input" name="line27">
+                <span class="input-label">Line 27</span>
+                <input type="text" placeholder="{{Song.line27}}" ng-model="song.line27">
+            </label>
+            <label class="item item-input" name="line28">
+                <span class="input-label">Line 28</span>
+                <input type="text" placeholder="{{Song.line28}}" ng-model="song.line28">
+            </label>
+            <label class="item item-input" name="line29">
+                <span class="input-label">Line 29</span>
+                <input type="text" placeholder="{{Song.line29}}" ng-model="song.line29">
+            </label>
+
+            <label class="item item-input" name="line30">
+                <span class="input-label">Line 30</span>
+                <input type="text" placeholder="{{Song.line30}}" ng-model="song.line30">
+            </label>
+
+            <a id="editSong-button25" style="font-weight:600;" class="button button-positive  button-block" ng-click="editSong(song) ; song = null">Submit Edit Song</a>
+
+            <div class="spacer" style="width: 300px; height: 144px;"></div>
+
+            <button id="editSong-button31" class="button button-assertive  button-block" ng-click="deleteSong()">Delete Song</button>
+        </form>
+    </ion-content>
+</ion-view>

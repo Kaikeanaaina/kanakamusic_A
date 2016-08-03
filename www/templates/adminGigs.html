@@ -1,0 +1,59 @@
+<ion-view title="Gigs" id="page3">
+    <ion-content padding="true" class="has-header">
+
+        <a ui-sref="menu.addNewGig" id="gigs-button11" class="button button-positive button-small button-block">Add New Gig</a>
+        <button id="gigs-button20" class="button button-calm  button-block" ng-click="filterButton=!filterButton">Filter</button>
+        <form class="list" ng-show="filterButton">
+            <label class="item item-select">
+                <span class="input-label">Band</span>
+                <select></select>
+            </label>
+            <label class="item item-input" name="address">
+                <span class="input-label">Location</span>
+                <input type="text" placeholder="Address">
+            </label>
+            <label class="item item-select" name="price">
+                <span class="input-label">Price</span>
+                <select>
+                    <option>All</option>
+                    <option>Free</option>
+                    <option>Cost &lt; $5</option>
+                    <option>Cost &lt; $10</option>
+                    <option>Cost &lt; $20</option>
+                    <option>Cost &lt; $30</option>
+                    <option>Cost &lt; $ 50</option>
+                    <option>Cost +++</option>
+                </select>
+            </label>
+
+            <label class="item item-select" name="age">
+                <span class="input-label">Age</span>
+                <select>
+                    <option>All ages</option>
+                    <option>16yrs &amp; older</option>
+                    <option>18yrs &amp; older</option>
+                    <option>21yrs &amp; older</option>
+                    <option>23yrs &amp; older</option>
+                </select>
+            </label>
+
+        </form>
+
+            <ion-item class="item-divider">27, April 2016</ion-item>
+            <ion-item class="item-thumbnail-left" ui-sref="menu.gigDetails">
+                <img src="img/NCXTPwR1QTqmCI9B81r5_ukulele.jpg">
+                <h2>Event Name</h2>
+                <p>When, where,</p>
+            </ion-item>
+
+        <ion-list>
+            <ion-item class="item-divider">28, April 2016</ion-item>
+        </ion-list>
+        <ion-list></ion-list>
+        <div>
+            <a style="display:block;" ui-sref="menu.gigDetails">
+                <img src="img/B5IeuMATJG5bAI6UzzJQ_ukulele.jpg" width="100%" height="auto" style="display: block; margin-left: auto; margin-right: auto;">
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

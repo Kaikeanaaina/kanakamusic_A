@@ -1,0 +1,46 @@
+<ion-view title="Gigs Calendar" id="page22">
+    <ion-content padding="true" class="has-header">
+        <a ui-sref="menu.addNewGig" id="gigsCalendar-button36" class="button button-positive button-small button-block">Add New Gig</a>
+        <form class="list">
+            <button id="gigsCalendar-button37" class="button button-calm  button-block">Filter</button>
+            <label class="item item-select">
+                <span class="input-label">Band</span>
+                <select></select>
+            </label>
+            <label class="item item-input" name="address">
+                <span class="input-label">Location</span>
+                <input type="text" placeholder="Address">
+            </label>
+        </form>
+        <form class="list">
+            <label class="item item-select" name="price">
+                <span class="input-label">Price</span>
+                <select>
+                    <option>All</option>
+                    <option>Free</option>
+                    <option>Cost &lt; $5</option>
+                    <option>Cost &lt; $10</option>
+                    <option>Cost &lt; $20</option>
+                    <option>Cost &lt; $30</option>
+                    <option>Cost &lt; $ 50</option>
+                    <option>Cost +++</option>
+                </select>
+            </label>
+            <label class="item item-select" name="age">
+                <span class="input-label">Age</span>
+                <select>
+                    <option>All ages</option>
+                    <option>16yrs &amp; older</option>
+                    <option>18yrs &amp; older</option>
+                    <option>21yrs &amp; older</option>
+                    <option>23yrs &amp; older</option>
+                </select>
+            </label>
+        </form>
+        <ion-list></ion-list>
+        <a ui-sref="dateOfTheGigs" id="gigsCalendar-button38" class="button button-positive  button-block">Date of the gig (temp)</a>
+        <div id="gigsCalendar-markdown23" style="color:#000000;">
+            <p>Calendar of the year goes here, all the months in the year. if there's an event there will be a dot on the date. when a date is clicked. it will go to a list of events on that day by the time it starts.</p>
+        </div>
+    </ion-content>
+</ion-view>

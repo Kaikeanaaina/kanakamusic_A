@@ -1,0 +1,16 @@
+<ion-view title="Edit Record Label" id="page18" ng-init="getRecordLabelToEdit()">
+    <ion-content padding="true" class="has-header">
+        <form class="list">
+            <label class="item item-input">
+                <span class="input-label">Record Label</span>
+                <input type="text" placeholder="{{RecordLabel.name}}" ng-model="recordLabel.name">
+            </label>
+            <button id="editRecordLabel-button17" class="button button-balanced  button-block" ng-click="editRecordLabel(recordLabel); recordLabel = null">Submit Edit Record Label</button>
+
+                        <div class="spacer" style="width: 300px; height: 228px;"></div>
+
+            <button id="editArtist-button30" class="button button-assertive  button-block" ng-click="deleteRecordLabel()">Delete Record Label</button>
+
+        </form>
+    </ion-content>
+</ion-view>
