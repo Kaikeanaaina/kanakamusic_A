@@ -49,6 +49,21 @@ router.get('/:id', function(req, res) {
   });
 });
 
+router.put('/ByArtistId/:id', function(req, res){
+  Album.update(
+  {
+    updatedAt : 'now()',
+    visibility : req.body.visibility
+  }, {
+    where : {
+      ArtistId : req.body.id
+    }
+  })
+  .then(function(album){
+    return res.json(album);
+  });
+});
+
 router.put('/:id', function(req, res){
   Album.update(
   {
