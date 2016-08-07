@@ -1423,13 +1423,26 @@ angular.module('app.Controllers', [])
     }
   };
 
-  $scope.deleteAlbum = function(){
-    albumService.deleteAlbum($scope.Album)
-    songService.deleteSongsByAlbum($scope.Album)
-    .success(function(data){
-      $scope.getAllAlbums();
-      return $state.go('adminMenu.home.albums');
+  $scope.showDeleteAlbumConfirm = function() {
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Delete ' + $scope.Album.title + ' album?',
+      template: 'Are you sure you want to Delete ' + $scope.Album.title + ' album?',
+      okText: 'DELETE'
     });
+
+    confirmPopup.then(function(res) {
+      if(res) {
+        albumService.deleteAlbum($scope.Album)
+        songService.deleteSongsByAlbum($scope.Album)
+        .success(function(data){
+          $scope.getAllAlbums();
+          return $state.go('adminMenu.home.albums');
+        });
+      }
+    });
+  };
+
+  $scope.deleteAlbum = function(){
   };
 
  $scope.getAllRecordLabels = function(){
