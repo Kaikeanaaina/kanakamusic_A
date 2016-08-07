@@ -550,247 +550,256 @@ angular.module('app.Controllers', [])
     });
   };
 
-  $scope.editSong = function(song){
+  $scope.showEditSongConfirm = function(song) {
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Edit ' + $scope.Song.title + ' song?',
+      template: 'Are you sure you want to edit ' + $scope.Song.title + ' song?',
+      okText: 'EDIT'
+    });
 
-    if(song===undefined || song === null){
-      return $location.url('adminSide-menu/song/content/'+ $scope.Song.id);
-    }
+    confirmPopup.then(function(res) {
+      if(res) {
+        if(song===undefined || song === null){
+          return $location.url('adminSide-menu/song/content/'+ $scope.Song.id);
+        }
 
-    if(song.hasOwnProperty("title") && song.title.length!==0){
+        if(song.hasOwnProperty("title") && song.title.length!==0){
 
-      if(!song.hasOwnProperty("visibility")){
-        song.visibility = $scope.Song.visibility;
-      }
-      if(!song.hasOwnProperty("id")){
-        song.id = $scope.Song.id;
-      }
-      if(!song.hasOwnProperty("ArtistId") || song.ArtistId.length===0){
-        song.ArtistId = $scope.Song.AtistId;
-      }
-      if(!song.hasOwnProperty("AlbumId") || song.AlbumId.length===0){
-        song.AlbumId = $scope.Song.AlbumId;
-      }
-      if(!song.hasOwnProperty("type") || song.type.length===0){
-        song.type = $scope.Song.type;
-      }
-      if(!song.hasOwnProperty("description") || song.description.length===0){
-        song.description = $scope.Song.description;
-      }
-      if(!song.hasOwnProperty("line1") || song.line1.length===0){
-        song.line1 = $scope.Song.line1;
-      }
-      if(!song.hasOwnProperty("line2") || song.line2.length===0){
-        song.line2 = $scope.Song.line2;
-      }
-      if(!song.hasOwnProperty("line3") || song.line3.length===0){
-        song.line3 = $scope.Song.line3;
-      }
-      if(!song.hasOwnProperty("line4") || song.line4.length===0){
-        song.line4 = $scope.Song.line4;
-      }
-      if(!song.hasOwnProperty("line5") || song.line5.length===0){
-        song.line5 = $scope.Song.line5;
-      }
-      if(!song.hasOwnProperty("line6") || song.line6.length===0){
-        song.line6 = $scope.Song.line6;
-      }
-      if(!song.hasOwnProperty("line7") || song.line7.length===0){
-        song.line7 = $scope.Song.line7;
-      }
-      if(!song.hasOwnProperty("line8") || song.line8.length===0){
-        song.line8 = $scope.Song.line8;
-      }
-      if(!song.hasOwnProperty("line9") || song.line9.length===0){
-        song.line9 = $scope.Song.line9;
-      }
-      if(!song.hasOwnProperty("line10") || song.line10.length===0){
-        song.line10 = $scope.Song.line10;
-      }
-      if(!song.hasOwnProperty("line11") || song.line11.length===0){
-        song.line11 = $scope.Song.line11;
-      }
-      if(!song.hasOwnProperty("line12") || song.line12.length===0){
-        song.line12 = $scope.Song.line12;
-      }
-      if(!song.hasOwnProperty("line13") || song.line13.length===0){
-        song.line13 = $scope.Song.line13;
-      }
-      if(!song.hasOwnProperty("line14") || song.line14.length===0){
-        song.line14 = $scope.Song.line14;
-      }
-      if(!song.hasOwnProperty("line15") || song.line15.length===0){
-        song.line15 = $scope.Song.line15;
-      }
-      if(!song.hasOwnProperty("line16") || song.line16.length===0){
-        song.line16 = $scope.Song.line16;
-      }
-      if(!song.hasOwnProperty("line17") || song.line17.length===0){
-        song.line17 = $scope.Song.line17;
-      }
-      if(!song.hasOwnProperty("line18") || song.line18.length===0){
-        song.line18 = $scope.Song.line18;
-      }
-      if(!song.hasOwnProperty("line19") || song.line19.length===0){
-        song.line19 = $scope.Song.line19;
-      }
-      if(!song.hasOwnProperty("line20") || song.line20.length===0){
-        song.line20 = $scope.Song.line20;
-      }
-      if(!song.hasOwnProperty("line21") || song.line21.length===0){
-        song.line21 = $scope.Song.line21;
-      }
-      if(!song.hasOwnProperty("line22") || song.line22.length===0){
-        song.line22 = $scope.Song.line22;
-      }
-      if(!song.hasOwnProperty("line23") || song.line23.length===0){
-        song.line23 = $scope.Song.line23;
-      }
-      if(!song.hasOwnProperty("line24") || song.line24.length===0){
-        song.line24 = $scope.Song.line24;
-      }
-      if(!song.hasOwnProperty("line25") || song.line25.length===0){
-        song.line25 = $scope.Song.line25;
-      }
-      if(!song.hasOwnProperty("line26") || song.line26.length===0){
-        song.line26 = $scope.Song.line26;
-      }
-      if(!song.hasOwnProperty("line27") || song.line27.length===0){
-        song.line27 = $scope.Song.line27;
-      }
-      if(!song.hasOwnProperty("line28") || song.line28.length===0){
-        song.line28 = $scope.Song.line28;
-      }
-      if(!song.hasOwnProperty("line29") || song.line29.length===0){
-        song.line29 = $scope.Song.line29;
-      }
-      if(!song.hasOwnProperty("line30") || song.line30.length===0){
-        song.line30 = $scope.Song.line30;
-      }
+          if(!song.hasOwnProperty("visibility")){
+            song.visibility = $scope.Song.visibility;
+          }
+          if(!song.hasOwnProperty("id")){
+            song.id = $scope.Song.id;
+          }
+          if(!song.hasOwnProperty("ArtistId") || song.ArtistId.length===0){
+            song.ArtistId = $scope.Song.AtistId;
+          }
+          if(!song.hasOwnProperty("AlbumId") || song.AlbumId.length===0){
+            song.AlbumId = $scope.Song.AlbumId;
+          }
+          if(!song.hasOwnProperty("type") || song.type.length===0){
+            song.type = $scope.Song.type;
+          }
+          if(!song.hasOwnProperty("description") || song.description.length===0){
+            song.description = $scope.Song.description;
+          }
+          if(!song.hasOwnProperty("line1") || song.line1.length===0){
+            song.line1 = $scope.Song.line1;
+          }
+          if(!song.hasOwnProperty("line2") || song.line2.length===0){
+            song.line2 = $scope.Song.line2;
+          }
+          if(!song.hasOwnProperty("line3") || song.line3.length===0){
+            song.line3 = $scope.Song.line3;
+          }
+          if(!song.hasOwnProperty("line4") || song.line4.length===0){
+            song.line4 = $scope.Song.line4;
+          }
+          if(!song.hasOwnProperty("line5") || song.line5.length===0){
+            song.line5 = $scope.Song.line5;
+          }
+          if(!song.hasOwnProperty("line6") || song.line6.length===0){
+            song.line6 = $scope.Song.line6;
+          }
+          if(!song.hasOwnProperty("line7") || song.line7.length===0){
+            song.line7 = $scope.Song.line7;
+          }
+          if(!song.hasOwnProperty("line8") || song.line8.length===0){
+            song.line8 = $scope.Song.line8;
+          }
+          if(!song.hasOwnProperty("line9") || song.line9.length===0){
+            song.line9 = $scope.Song.line9;
+          }
+          if(!song.hasOwnProperty("line10") || song.line10.length===0){
+            song.line10 = $scope.Song.line10;
+          }
+          if(!song.hasOwnProperty("line11") || song.line11.length===0){
+            song.line11 = $scope.Song.line11;
+          }
+          if(!song.hasOwnProperty("line12") || song.line12.length===0){
+            song.line12 = $scope.Song.line12;
+          }
+          if(!song.hasOwnProperty("line13") || song.line13.length===0){
+            song.line13 = $scope.Song.line13;
+          }
+          if(!song.hasOwnProperty("line14") || song.line14.length===0){
+            song.line14 = $scope.Song.line14;
+          }
+          if(!song.hasOwnProperty("line15") || song.line15.length===0){
+            song.line15 = $scope.Song.line15;
+          }
+          if(!song.hasOwnProperty("line16") || song.line16.length===0){
+            song.line16 = $scope.Song.line16;
+          }
+          if(!song.hasOwnProperty("line17") || song.line17.length===0){
+            song.line17 = $scope.Song.line17;
+          }
+          if(!song.hasOwnProperty("line18") || song.line18.length===0){
+            song.line18 = $scope.Song.line18;
+          }
+          if(!song.hasOwnProperty("line19") || song.line19.length===0){
+            song.line19 = $scope.Song.line19;
+          }
+          if(!song.hasOwnProperty("line20") || song.line20.length===0){
+            song.line20 = $scope.Song.line20;
+          }
+          if(!song.hasOwnProperty("line21") || song.line21.length===0){
+            song.line21 = $scope.Song.line21;
+          }
+          if(!song.hasOwnProperty("line22") || song.line22.length===0){
+            song.line22 = $scope.Song.line22;
+          }
+          if(!song.hasOwnProperty("line23") || song.line23.length===0){
+            song.line23 = $scope.Song.line23;
+          }
+          if(!song.hasOwnProperty("line24") || song.line24.length===0){
+            song.line24 = $scope.Song.line24;
+          }
+          if(!song.hasOwnProperty("line25") || song.line25.length===0){
+            song.line25 = $scope.Song.line25;
+          }
+          if(!song.hasOwnProperty("line26") || song.line26.length===0){
+            song.line26 = $scope.Song.line26;
+          }
+          if(!song.hasOwnProperty("line27") || song.line27.length===0){
+            song.line27 = $scope.Song.line27;
+          }
+          if(!song.hasOwnProperty("line28") || song.line28.length===0){
+            song.line28 = $scope.Song.line28;
+          }
+          if(!song.hasOwnProperty("line29") || song.line29.length===0){
+            song.line29 = $scope.Song.line29;
+          }
+          if(!song.hasOwnProperty("line30") || song.line30.length===0){
+            song.line30 = $scope.Song.line30;
+          }
 
-      songService.editSong($scope.Song.id, song)
-      .success(function(data){
-        return $location.url('adminSide-menu/song/content/'+ $scope.Song.id);
-      });
-    } else {
+          songService.editSong($scope.Song.id, song)
+          .success(function(data){
+            return $location.url('adminSide-menu/song/content/'+ $scope.Song.id);
+          });
+        } else {
 
-      if(!song.hasOwnProperty("visibility")){
-        song.visibility = $scope.Song.visibility;
-      }
-      if(!song.hasOwnProperty("id")){
-        song.id = $scope.Song.id;
-      }
-      if(!song.hasOwnProperty("title")){
-        song.title = $scope.Song.title;
-      }
-      if(!song.hasOwnProperty("ArtistId") || song.ArtistId.length===0){
-        song.ArtistId = $scope.Song.AtistId;
-      }
-      if(!song.hasOwnProperty("AlbumId") || song.AlbumId.length===0){
-        song.AlbumId = $scope.Song.AlbumId;
-      }
-      if(!song.hasOwnProperty("type") || song.type.length===0){
-        song.type = $scope.Song.type;
-      }
-      if(!song.hasOwnProperty("description") || song.description.length===0){
-        song.description = $scope.Song.description;
-      }
-      if(!song.hasOwnProperty("line1") || song.line1.length===0){
-        song.line1 = $scope.Song.line1;
-      }
-      if(!song.hasOwnProperty("line2") || song.line2.length===0){
-        song.line2 = $scope.Song.line2;
-      }
-      if(!song.hasOwnProperty("line3") || song.line3.length===0){
-        song.line3 = $scope.Song.line3;
-      }
-      if(!song.hasOwnProperty("line4") || song.line4.length===0){
-        song.line4 = $scope.Song.line4;
-      }
-      if(!song.hasOwnProperty("line5") || song.line5.length===0){
-        song.line5 = $scope.Song.line5;
-      }
-      if(!song.hasOwnProperty("line6") || song.line6.length===0){
-        song.line6 = $scope.Song.line6;
-      }
-      if(!song.hasOwnProperty("line7") || song.line7.length===0){
-        song.line7 = $scope.Song.line7;
-      }
-      if(!song.hasOwnProperty("line8") || song.line8.length===0){
-        song.line8 = $scope.Song.line8;
-      }
-      if(!song.hasOwnProperty("line9") || song.line9.length===0){
-        song.line9 = $scope.Song.line9;
-      }
-      if(!song.hasOwnProperty("line10") || song.line10.length===0){
-        song.line10 = $scope.Song.line10;
-      }
-      if(!song.hasOwnProperty("line11") || song.line11.length===0){
-        song.line11 = $scope.Song.line11;
-      }
-      if(!song.hasOwnProperty("line12") || song.line12.length===0){
-        song.line12 = $scope.Song.line12;
-      }
-      if(!song.hasOwnProperty("line13") || song.line13.length===0){
-        song.line13 = $scope.Song.line13;
-      }
-      if(!song.hasOwnProperty("line14") || song.line14.length===0){
-        song.line14 = $scope.Song.line14;
-      }
-      if(!song.hasOwnProperty("line15") || song.line15.length===0){
-        song.line15 = $scope.Song.line15;
-      }
-      if(!song.hasOwnProperty("line16") || song.line16.length===0){
-        song.line16 = $scope.Song.line16;
-      }
-      if(!song.hasOwnProperty("line17") || song.line17.length===0){
-        song.line17 = $scope.Song.line17;
-      }
-      if(!song.hasOwnProperty("line18") || song.line18.length===0){
-        song.line18 = $scope.Song.line18;
-      }
-      if(!song.hasOwnProperty("line19") || song.line19.length===0){
-        song.line19 = $scope.Song.line19;
-      }
-      if(!song.hasOwnProperty("line20") || song.line20.length===0){
-        song.line20 = $scope.Song.line20;
-      }
-      if(!song.hasOwnProperty("line21") || song.line21.length===0){
-        song.line21 = $scope.Song.line21;
-      }
-      if(!song.hasOwnProperty("line22") || song.line22.length===0){
-        song.line22 = $scope.Song.line22;
-      }
-      if(!song.hasOwnProperty("line23") || song.line23.length===0){
-        song.line23 = $scope.Song.line23;
-      }
-      if(!song.hasOwnProperty("line24") || song.line24.length===0){
-        song.line24 = $scope.Song.line24;
-      }
-      if(!song.hasOwnProperty("line25") || song.line25.length===0){
-        song.line25 = $scope.Song.line25;
-      }
-      if(!song.hasOwnProperty("line26") || song.line26.length===0){
-        song.line26 = $scope.Song.line26;
-      }
-      if(!song.hasOwnProperty("line27") || song.line27.length===0){
-        song.line27 = $scope.Song.line27;
-      }
-      if(!song.hasOwnProperty("line28") || song.line28.length===0){
-        song.line28 = $scope.Song.line28;
-      }
-      if(!song.hasOwnProperty("line29") || song.line29.length===0){
-        song.line29 = $scope.Song.line29;
-      }
-      if(!song.hasOwnProperty("line30") || song.line30.length===0){
-        song.line30 = $scope.Song.line30;
-      }
+          if(!song.hasOwnProperty("visibility")){
+            song.visibility = $scope.Song.visibility;
+          }
+          if(!song.hasOwnProperty("id")){
+            song.id = $scope.Song.id;
+          }
+          if(!song.hasOwnProperty("title")){
+            song.title = $scope.Song.title;
+          }
+          if(!song.hasOwnProperty("ArtistId") || song.ArtistId.length===0){
+            song.ArtistId = $scope.Song.AtistId;
+          }
+          if(!song.hasOwnProperty("AlbumId") || song.AlbumId.length===0){
+            song.AlbumId = $scope.Song.AlbumId;
+          }
+          if(!song.hasOwnProperty("type") || song.type.length===0){
+            song.type = $scope.Song.type;
+          }
+          if(!song.hasOwnProperty("description") || song.description.length===0){
+            song.description = $scope.Song.description;
+          }
+          if(!song.hasOwnProperty("line1") || song.line1.length===0){
+            song.line1 = $scope.Song.line1;
+          }
+          if(!song.hasOwnProperty("line2") || song.line2.length===0){
+            song.line2 = $scope.Song.line2;
+          }
+          if(!song.hasOwnProperty("line3") || song.line3.length===0){
+            song.line3 = $scope.Song.line3;
+          }
+          if(!song.hasOwnProperty("line4") || song.line4.length===0){
+            song.line4 = $scope.Song.line4;
+          }
+          if(!song.hasOwnProperty("line5") || song.line5.length===0){
+            song.line5 = $scope.Song.line5;
+          }
+          if(!song.hasOwnProperty("line6") || song.line6.length===0){
+            song.line6 = $scope.Song.line6;
+          }
+          if(!song.hasOwnProperty("line7") || song.line7.length===0){
+            song.line7 = $scope.Song.line7;
+          }
+          if(!song.hasOwnProperty("line8") || song.line8.length===0){
+            song.line8 = $scope.Song.line8;
+          }
+          if(!song.hasOwnProperty("line9") || song.line9.length===0){
+            song.line9 = $scope.Song.line9;
+          }
+          if(!song.hasOwnProperty("line10") || song.line10.length===0){
+            song.line10 = $scope.Song.line10;
+          }
+          if(!song.hasOwnProperty("line11") || song.line11.length===0){
+            song.line11 = $scope.Song.line11;
+          }
+          if(!song.hasOwnProperty("line12") || song.line12.length===0){
+            song.line12 = $scope.Song.line12;
+          }
+          if(!song.hasOwnProperty("line13") || song.line13.length===0){
+            song.line13 = $scope.Song.line13;
+          }
+          if(!song.hasOwnProperty("line14") || song.line14.length===0){
+            song.line14 = $scope.Song.line14;
+          }
+          if(!song.hasOwnProperty("line15") || song.line15.length===0){
+            song.line15 = $scope.Song.line15;
+          }
+          if(!song.hasOwnProperty("line16") || song.line16.length===0){
+            song.line16 = $scope.Song.line16;
+          }
+          if(!song.hasOwnProperty("line17") || song.line17.length===0){
+            song.line17 = $scope.Song.line17;
+          }
+          if(!song.hasOwnProperty("line18") || song.line18.length===0){
+            song.line18 = $scope.Song.line18;
+          }
+          if(!song.hasOwnProperty("line19") || song.line19.length===0){
+            song.line19 = $scope.Song.line19;
+          }
+          if(!song.hasOwnProperty("line20") || song.line20.length===0){
+            song.line20 = $scope.Song.line20;
+          }
+          if(!song.hasOwnProperty("line21") || song.line21.length===0){
+            song.line21 = $scope.Song.line21;
+          }
+          if(!song.hasOwnProperty("line22") || song.line22.length===0){
+            song.line22 = $scope.Song.line22;
+          }
+          if(!song.hasOwnProperty("line23") || song.line23.length===0){
+            song.line23 = $scope.Song.line23;
+          }
+          if(!song.hasOwnProperty("line24") || song.line24.length===0){
+            song.line24 = $scope.Song.line24;
+          }
+          if(!song.hasOwnProperty("line25") || song.line25.length===0){
+            song.line25 = $scope.Song.line25;
+          }
+          if(!song.hasOwnProperty("line26") || song.line26.length===0){
+            song.line26 = $scope.Song.line26;
+          }
+          if(!song.hasOwnProperty("line27") || song.line27.length===0){
+            song.line27 = $scope.Song.line27;
+          }
+          if(!song.hasOwnProperty("line28") || song.line28.length===0){
+            song.line28 = $scope.Song.line28;
+          }
+          if(!song.hasOwnProperty("line29") || song.line29.length===0){
+            song.line29 = $scope.Song.line29;
+          }
+          if(!song.hasOwnProperty("line30") || song.line30.length===0){
+            song.line30 = $scope.Song.line30;
+          }
 
-      songService.editSong($scope.Song.id, song)
-      .success(function(data){
+          songService.editSong($scope.Song.id, song)
+          .success(function(data){
 
-        return $location.url('adminSide-menu/song/content/'+ $scope.Song.id);
-      });
-    }
+            return $location.url('adminSide-menu/song/content/'+ $scope.Song.id);
+          });
+        }
+      }
+    });
   };
 
   $scope.showDeleteSongConfirm = function() {
@@ -1210,9 +1219,6 @@ angular.module('app.Controllers', [])
         });
       }
     });
-  };
-
-  $scope.deleteArtist = function(){
   };
 
   $scope.getAllAlbums = function(){
