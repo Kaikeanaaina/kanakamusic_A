@@ -1091,93 +1091,103 @@ angular.module('app.Controllers', [])
     });
   };
 
-  $scope.editArtist = function(artist){
+  $scope.showEditArtistConfirm = function(artist) {
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Edit ' + $scope.Artist.name + ' artist?',
+      template: 'Are you sure you want to edit ' + $scope.Artist.name + ' artist?',
+      okText: 'EDIT'
+    });
 
-    if(artist===undefined || artist === null){
-      return $location.url('adminSide-menu/artist/content/'+ $scope.Artist.id);
-    }
+    confirmPopup.then(function(res) {
+      if(res) {
+        if(artist===undefined || artist === null){
+          return $location.url('adminSide-menu/artist/content/'+ $scope.Artist.id);
+        }
 
-    if(artist.hasOwnProperty("name") && artist.name.length!==0){
+        if(artist.hasOwnProperty("name") && artist.name.length!==0){
 
-      if(!artist.hasOwnProperty("id")){
-        artist.id = $scope.Artist.id;
-      }
-      if(!artist.hasOwnProperty("type")){
-        artist.type = $scope.Artist.type;
-      }
-      if(!artist.hasOwnProperty("facebook")){
-        artist.facebook = $scope.Artist.facebook;
-      }
-      if(!artist.hasOwnProperty("instagram")){
-        artist.instagram = $scope.Artist.instagram;
-      }
-      if(!artist.hasOwnProperty("twitter")){
-        artist.twitter = $scope.Artist.twitter;
-      }
-      if(!artist.hasOwnProperty("bookingPhoneNumber")){
-        artist.bookingPhoneNumber = $scope.Artist.bookingPhoneNumber;
-      }
-      if(!artist.hasOwnProperty("bookingEmail")){
-        artist.bookingEmail = $scope.Artist.bookingEmail;
-      }
-      if(!artist.hasOwnProperty("description") || artist.description.length===0){
-        artist.description = $scope.Artist.description;
-      }
-      if(!artist.hasOwnProperty("visibility")){
-        artist.visibility = $scope.Artist.visibility;
-      } else {
-        albumService.editAlbumsByArtist(artist);
-        songService.editSongsByArtist(artist);
-      }
+          if(!artist.hasOwnProperty("id")){
+            artist.id = $scope.Artist.id;
+          }
+          if(!artist.hasOwnProperty("type")){
+            artist.type = $scope.Artist.type;
+          }
+          if(!artist.hasOwnProperty("facebook")){
+            artist.facebook = $scope.Artist.facebook;
+          }
+          if(!artist.hasOwnProperty("instagram")){
+            artist.instagram = $scope.Artist.instagram;
+          }
+          if(!artist.hasOwnProperty("twitter")){
+            artist.twitter = $scope.Artist.twitter;
+          }
+          if(!artist.hasOwnProperty("bookingPhoneNumber")){
+            artist.bookingPhoneNumber = $scope.Artist.bookingPhoneNumber;
+          }
+          if(!artist.hasOwnProperty("bookingEmail")){
+            artist.bookingEmail = $scope.Artist.bookingEmail;
+          }
+          if(!artist.hasOwnProperty("description") || artist.description.length===0){
+            artist.description = $scope.Artist.description;
+          }
+          if(!artist.hasOwnProperty("visibility")){
+            artist.visibility = $scope.Artist.visibility;
+          } else {
+            albumService.editAlbumsByArtist(artist);
+            songService.editSongsByArtist(artist);
+          }
 
-      artistService.editArtist($scope.Artist.id, artist)
-      .success(function(data){
-        $scope.getArtistToEdit();
-        $location.url('adminSide-menu/artist/content/'+ $scope.Artist.id);
-      });
-    } else {
+          artistService.editArtist($scope.Artist.id, artist)
+          .success(function(data){
+            $scope.getArtistToEdit();
+            $location.url('adminSide-menu/artist/content/'+ $scope.Artist.id);
+          });
+        } else {
 
-      if(!artist.hasOwnProperty("id")){
-        artist.id = $scope.Artist.id;
-      }
-      if(!artist.hasOwnProperty("name")){
-        artist.name = $scope.Artist.name;
-      }
-      if(!artist.hasOwnProperty("type")){
-        artist.type = $scope.Artist.type;
-      }
-      if(!artist.hasOwnProperty("facebook")){
-        artist.facebook = $scope.Artist.facebook;
-      }
-      if(!artist.hasOwnProperty("instagram")){
-        artist.instagram = $scope.Artist.instagram;
-      }
-      if(!artist.hasOwnProperty("twitter")){
-        artist.twitter = $scope.Artist.twitter;
-      }
-      if(!artist.hasOwnProperty("bookingPhoneNumber")){
-        artist.bookingPhoneNumber = $scope.Artist.bookingPhoneNumber;
-      }
-      if(!artist.hasOwnProperty("bookingEmail")){
-        artist.bookingEmail = $scope.Artist.bookingEmail;
-      }
-      if(!artist.hasOwnProperty("description") || artist.description.length===0){
-        artist.description = $scope.Artist.description;
-      }
-      if(!artist.hasOwnProperty("visibility")){
-        artist.visibility = $scope.Artist.visibility;
-      } else {
-        albumService.editAlbumsByArtist(artist);
-        songService.editSongsByArtist(artist);
-      }
+          if(!artist.hasOwnProperty("id")){
+            artist.id = $scope.Artist.id;
+          }
+          if(!artist.hasOwnProperty("name")){
+            artist.name = $scope.Artist.name;
+          }
+          if(!artist.hasOwnProperty("type")){
+            artist.type = $scope.Artist.type;
+          }
+          if(!artist.hasOwnProperty("facebook")){
+            artist.facebook = $scope.Artist.facebook;
+          }
+          if(!artist.hasOwnProperty("instagram")){
+            artist.instagram = $scope.Artist.instagram;
+          }
+          if(!artist.hasOwnProperty("twitter")){
+            artist.twitter = $scope.Artist.twitter;
+          }
+          if(!artist.hasOwnProperty("bookingPhoneNumber")){
+            artist.bookingPhoneNumber = $scope.Artist.bookingPhoneNumber;
+          }
+          if(!artist.hasOwnProperty("bookingEmail")){
+            artist.bookingEmail = $scope.Artist.bookingEmail;
+          }
+          if(!artist.hasOwnProperty("description") || artist.description.length===0){
+            artist.description = $scope.Artist.description;
+          }
+          if(!artist.hasOwnProperty("visibility")){
+            artist.visibility = $scope.Artist.visibility;
+          } else {
+            albumService.editAlbumsByArtist(artist);
+            songService.editSongsByArtist(artist);
+          }
 
 
-      artistService.editArtist($scope.Artist.id, artist)
-      .success(function(data){
-        $scope.getArtistToEdit();
-        $location.url('adminSide-menu/artist/content/'+ $scope.Artist.id);
-      });
-    }
+          artistService.editArtist($scope.Artist.id, artist)
+          .success(function(data){
+            $scope.getArtistToEdit();
+            $location.url('adminSide-menu/artist/content/'+ $scope.Artist.id);
+          });
+        }
+
+      }
+    });
   };
 
   $scope.showDeleteArtistConfirm = function() {
@@ -1368,59 +1378,69 @@ angular.module('app.Controllers', [])
     });
   };
 
-  $scope.editAlbum = function(album){
-    if(album===undefined || album === null){
-      return $location.url('adminSide-menu/album/'+ $scope.Album.id);
-    }
+  $scope.showEditAlbumConfirm = function(album) {
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Edit ' + $scope.Album.title + ' album?',
+      template: 'Are you sure you want to Delete ' + $scope.Album.title + ' album?',
+      okText: 'EDIT'
+    });
 
-    if(album.hasOwnProperty("title") && album.title.length!==0){
+    confirmPopup.then(function(res) {
+      if(res) {
+        if(album===undefined || album === null){
+          return $location.url('adminSide-menu/album/'+ $scope.Album.id);
+        }
 
-      if(!album.hasOwnProperty("id")){
-        album.id = $scope.Album.id;
-      }
-      if(!album.hasOwnProperty("RecordLabelId") || album.RecordLabelId.length===0){
-        album.RecordLabelId = $scope.Album.RecordLabelId;
-      }
-      if(!album.hasOwnProperty("description") || album.description.length===0){
-        album.description = $scope.Album.description;
-      }
-      if(!album.hasOwnProperty("visibility")){
-        album.visibility = $scope.Album.visibility;
-      } else {
-        songService.editSongsByAlbum(album);
-      }
+        if(album.hasOwnProperty("title") && album.title.length!==0){
 
-      albumService.editAlbum($scope.Album.id, album)
-      .success(function(data){
-        $scope.getAdminAlbumToEdit();
-        return $location.url('adminSide-menu/album/'+ $scope.Album.id);
-      });
-    } else {
+          if(!album.hasOwnProperty("id")){
+            album.id = $scope.Album.id;
+          }
+          if(!album.hasOwnProperty("RecordLabelId") || album.RecordLabelId.length===0){
+            album.RecordLabelId = $scope.Album.RecordLabelId;
+          }
+          if(!album.hasOwnProperty("description") || album.description.length===0){
+            album.description = $scope.Album.description;
+          }
+          if(!album.hasOwnProperty("visibility")){
+            album.visibility = $scope.Album.visibility;
+          } else {
+            songService.editSongsByAlbum(album);
+          }
 
-      if(!album.hasOwnProperty("id")){
-        album.id = $scope.Album.id;
-      }
-      if(!album.hasOwnProperty("title")){
-        album.title = $scope.Album.title;
-      }
-      if(!album.hasOwnProperty("RecordLabelId") || album.RecordLabelId.length===0){
-        album.RecordLabelId = $scope.Album.RecordLabelId;
-      }
-      if(!album.hasOwnProperty("description") || album.description.length===0){
-        album.description = $scope.Album.description;
-      }
-      if(!album.hasOwnProperty("visibility")){
-        album.visibility = $scope.Album.visibility;
-      } else {
-        songService.editSongsByAlbum(album);
-      }
+          albumService.editAlbum($scope.Album.id, album)
+          .success(function(data){
+            $scope.getAdminAlbumToEdit();
+            return $location.url('adminSide-menu/album/'+ $scope.Album.id);
+          });
+        } else {
 
-      albumService.editAlbum($scope.Album.id, album)
-      .success(function(data){
-        $scope.getAdminAlbumToEdit();
-        return $location.url('adminSide-menu/album/'+ $scope.Album.id);
-      });
-    }
+          if(!album.hasOwnProperty("id")){
+            album.id = $scope.Album.id;
+          }
+          if(!album.hasOwnProperty("title")){
+            album.title = $scope.Album.title;
+          }
+          if(!album.hasOwnProperty("RecordLabelId") || album.RecordLabelId.length===0){
+            album.RecordLabelId = $scope.Album.RecordLabelId;
+          }
+          if(!album.hasOwnProperty("description") || album.description.length===0){
+            album.description = $scope.Album.description;
+          }
+          if(!album.hasOwnProperty("visibility")){
+            album.visibility = $scope.Album.visibility;
+          } else {
+            songService.editSongsByAlbum(album);
+          }
+
+          albumService.editAlbum($scope.Album.id, album)
+          .success(function(data){
+            $scope.getAdminAlbumToEdit();
+            return $location.url('adminSide-menu/album/'+ $scope.Album.id);
+          });
+        }
+      }
+    });
   };
 
   $scope.showDeleteAlbumConfirm = function() {
