@@ -1119,7 +1119,8 @@ angular.module('app.Controllers', [])
       if(!artist.hasOwnProperty("visibility")){
         artist.visibility = $scope.Artist.visibility;
       } else {
-        albumService.editAlbumByArtist(artist);
+        albumService.editAlbumsByArtist(artist);
+        songService.editSongsByArtist(artist);
       }
 
       artistService.editArtist($scope.Artist.id, artist)
@@ -1159,7 +1160,8 @@ angular.module('app.Controllers', [])
       if(!artist.hasOwnProperty("visibility")){
         artist.visibility = $scope.Artist.visibility;
       } else {
-        albumService.editAlbumByArtist(artist);
+        albumService.editAlbumsByArtist(artist);
+        songService.editSongsByArtist(artist);
       }
 
 
