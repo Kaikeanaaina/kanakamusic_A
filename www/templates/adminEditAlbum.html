@@ -31,7 +31,7 @@
                 <span class="input-label">Description</span>
                 <textarea placeholder="{{Album.description}}" ng-model="album.description"> </textarea>
             </label>
-            <button id="editAlbum-button34" class="button button-balanced  button-block" ng-click="editAlbum(album); album = null">Edit Album</button>
+            <button id="editAlbum-button34" class="button button-balanced  button-block" ng-click="showEditAlbumConfirm(album); album = null">Edit Album</button>
         </form>
         <div class="spacer" style="width: 300px; height: 230px;"></div>
         <button id="editAlbum-button35" class="button button-assertive  button-block" ng-click="showDeleteAlbumConfirm()">Delete Album</button>
