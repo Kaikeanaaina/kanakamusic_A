@@ -30,6 +30,10 @@ angular.module('app.albumServices', [])
     return $http.put(domain + '/albums/' + albumPath, album);
   };
 
+  this.editAlbumByArtist = function(artist){
+    return $http.put(domain + '/albums/ByArtistId/' + artist.id, artist);
+  };
+
   this.deleteAlbum = function(album){
     return $http.delete(domain + '/albums/' + album.id, album);
   };
