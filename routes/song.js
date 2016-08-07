@@ -95,6 +95,21 @@ router.get('/:id', function(req, res) {
   });
 });
 
+router.put('/ByArtistId/:id', function(req, res){
+  Song.update(
+  {
+    updatedAt : 'now()',
+    visibility : req.body.visibility
+  }, {
+    where : {
+      ArtistId : req.body.id
+    }
+  })
+  .then(function(song){
+    return res.json(song);
+  });
+});
+
 router.put('/:id', function(req, res){
   Song.update(
   {
