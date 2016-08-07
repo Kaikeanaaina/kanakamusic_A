@@ -793,7 +793,7 @@ angular.module('app.Controllers', [])
     }
   };
 
-  $scope.showDeleteConfirm = function() {
+  $scope.showDeleteSongConfirm = function() {
     var confirmPopup = $ionicPopup.confirm({
       title: 'Delete ' + $scope.Song.title + ' song?',
       template: 'Are you sure you want to Delete ' + $scope.Song.title + ' song?',
