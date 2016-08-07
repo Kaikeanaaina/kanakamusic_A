@@ -176,10 +176,21 @@ router.put('/:id', function(req, res){
   });
 });
 
+router.delete('/ByAlbumId/:id', function(req, res){
+  Song.destroy({
+    where: {
+      AlbumId : req.body.id
+    }
+  })
+  .then(function(data){
+    return res.json(data);
+  })
+});
+
 router.delete('/ByArtistId/:id', function(req, res){
   Song.destroy({
     where: {
-      ArtistId : req.params.id
+      ArtistId : req.body.id
     }
   })
   .then(function(data){
