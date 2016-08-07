@@ -1366,6 +1366,8 @@ angular.module('app.Controllers', [])
       }
       if(!album.hasOwnProperty("visibility")){
         album.visibility = $scope.Album.visibility;
+      } else {
+        songService.editSongsByAlbum(album);
       }
 
       albumService.editAlbum($scope.Album.id, album)
@@ -1389,6 +1391,8 @@ angular.module('app.Controllers', [])
       }
       if(!album.hasOwnProperty("visibility")){
         album.visibility = $scope.Album.visibility;
+      } else {
+        songService.editSongsByAlbum(album);
       }
 
       albumService.editAlbum($scope.Album.id, album)
