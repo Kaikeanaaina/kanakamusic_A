@@ -1039,7 +1039,6 @@ angular.module('app.Controllers', [])
     var locationPath = $location.$$path;
     var splitLocationPath = locationPath.split("");
     splitLocationPath.splice(0,31);
-    console.log(splitLocationPath);
     var finalLocationPath = splitLocationPath.join("");
     artistService.getArtist(encodeURI(finalLocationPath))
     .success(function(data){
@@ -1119,6 +1118,8 @@ angular.module('app.Controllers', [])
       }
       if(!artist.hasOwnProperty("visibility")){
         artist.visibility = $scope.Artist.visibility;
+      } else {
+        albumService.editAlbumByArtist(artist);
       }
 
       artistService.editArtist($scope.Artist.id, artist)
@@ -1157,6 +1158,8 @@ angular.module('app.Controllers', [])
       }
       if(!artist.hasOwnProperty("visibility")){
         artist.visibility = $scope.Artist.visibility;
+      } else {
+        albumService.editAlbumByArtist(artist);
       }
 
 
