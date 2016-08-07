@@ -250,7 +250,6 @@ angular.module('app.Controllers', [])
   $scope.ZRecordLabel = [];
 
   $scope.getAllSongs = function(){
-    console.log('getting all songs');
     songService.getAllSongs()
     .success(function(data){
 
@@ -495,7 +494,7 @@ angular.module('app.Controllers', [])
     });
   };
 
-    $scope.getAdminSong = function(){
+  $scope.getAdminSong = function(){
       var locationPath = $location.$$path;
       var splitLocationPath = locationPath.split("");
       splitLocationPath.splice(0,29);
@@ -1005,7 +1004,6 @@ angular.module('app.Controllers', [])
     });
   };
 
-
   $scope.addArtist = function(artist){
 
     if(!artist.name){
@@ -1075,7 +1073,6 @@ angular.module('app.Controllers', [])
       });
     });
   };
-
 
   $scope.getArtistToEdit = function(){
     var locationPath = $location.$$path;
@@ -1172,12 +1169,15 @@ angular.module('app.Controllers', [])
   };
 
   $scope.deleteArtist = function(){
-    console.log('delete this artist');
+    albumService.deleteAlbumByArtist($scope.Artist);
+    songService.deleteSongByArtist($scope.Artist);
     artistService.deleteArtist($scope.Artist)
-    .success(function(data){
-      $scope.getAllArtists();
-      return $state.go('adminMenu.home.HawaiianArtist');
-    });
+      .success(function(data){
+        $scope.getAllArtists();
+        $scope.getAllAlbums();
+        $scope.getAllSongs();
+        return $state.go('adminMenu.home.HawaiianArtist');
+      });
   };
 
   $scope.getAllAlbums = function(){
