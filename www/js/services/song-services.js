@@ -50,5 +50,9 @@ angular.module('app.songServices', [])
     return $http.delete(domain + '/songs/ByArtistId/' + artist.id, artist );
   }
 
+  this.deleteSongsByAlbum = function(album){
+    return $http.delete(domain + '/songs/ByAlbumId/' + album.id, album);
+  }
+
 }]);
 
