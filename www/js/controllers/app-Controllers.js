@@ -478,7 +478,6 @@ angular.module('app.Controllers', [])
 
     songService.addSong(song)
     .success(function(data){
-      console.log('finish adding', data);
       //*********ATTENTION*************
             //*********ATTENTION*************
                   //*********ATTENTION*************
@@ -536,7 +535,6 @@ angular.module('app.Controllers', [])
     var locationPath = $location.$$path;
     var splitLocationPath = locationPath.split("");
     splitLocationPath.splice(0,26);
-    console.log(splitLocationPath);
     var finalLocationPath = splitLocationPath.join("");
     songService.getSong(finalLocationPath)
     .success(function(data){
@@ -795,13 +793,22 @@ angular.module('app.Controllers', [])
     }
   };
 
-  $scope.deleteSong = function(){
-    songService.deleteSong($scope.Song)
-    .success(function(data){
-    return $state.go('adminMenu.home.HawaiianSong');
-
+  $scope.showDeleteConfirm = function() {
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Delete ' + $scope.Song.title + ' song?',
+      template: 'Are you sure you want to Delete ' + $scope.Song.title + ' song?',
+      okText: 'DELETE'
     });
-  };
+
+    confirmPopup.then(function(res) {
+      if(res) {
+        songService.deleteSong($scope.Song)
+        .success(function(data){
+          return $state.go('adminMenu.home.HawaiianSong');
+        });
+      }
+    });
+ };
 
   $scope.getAllArtists = function(){
     artistService.getAllArtists()
@@ -1405,9 +1412,10 @@ angular.module('app.Controllers', [])
 
   $scope.deleteAlbum = function(){
     albumService.deleteAlbum($scope.Album)
+    songService.deleteSongsByAlbum($scope.Album)
     .success(function(data){
       $scope.getAllAlbums();
-      return $state.go('adminMenu.albums');
+      return $state.go('adminMenu.home.albums');
     });
   };
 
