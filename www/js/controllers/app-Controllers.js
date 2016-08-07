@@ -808,7 +808,7 @@ angular.module('app.Controllers', [])
         });
       }
     });
- };
+  };
 
   $scope.getAllArtists = function(){
     artistService.getAllArtists()
@@ -1180,16 +1180,29 @@ angular.module('app.Controllers', [])
     }
   };
 
+  $scope.showDeleteArtistConfirm = function() {
+    var confirmPopup = $ionicPopup.confirm({
+      title: 'Delete ' + $scope.Artist.name + ' artist?',
+      template: 'Are you sure you want to Delete ' + $scope.Artist.name + ' artist?',
+      okText: 'DELETE'
+    });
+
+    confirmPopup.then(function(res) {
+      if(res) {
+        albumService.deleteAlbumByArtist($scope.Artist);
+        songService.deleteSongByArtist($scope.Artist);
+        artistService.deleteArtist($scope.Artist)
+        .success(function(data){
+          $scope.getAllArtists();
+          $scope.getAllAlbums();
+          $scope.getAllSongs();
+          return $state.go('adminMenu.home.HawaiianArtist');
+        });
+      }
+    });
+  };
+
   $scope.deleteArtist = function(){
-    albumService.deleteAlbumByArtist($scope.Artist);
-    songService.deleteSongByArtist($scope.Artist);
-    artistService.deleteArtist($scope.Artist)
-      .success(function(data){
-        $scope.getAllArtists();
-        $scope.getAllAlbums();
-        $scope.getAllSongs();
-        return $state.go('adminMenu.home.HawaiianArtist');
-      });
   };
 
   $scope.getAllAlbums = function(){
