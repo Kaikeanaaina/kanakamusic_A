@@ -324,10 +324,10 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   })
 
-  .state('menu.addNewRecordLabel', {
+  .state('adminMenu.addNewRecordLabel', {
     url: '/addNewRecordLabel',
     views: {
-      'side-menu21' : {
+      'side-menu20' : {
         templateUrl: 'templates/addNewRecordLabel.html',
         controller: 'kanakaMusicCtrl'      }
     }
