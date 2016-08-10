@@ -32,7 +32,7 @@ angular.module('app.songServices', [])
 
   this.editSongsByAlbum = function(album){
     return $http.put(domain + '/songs/ByAlbumId/' + album.id, album);
-  }
+  };
 
   this.getSpecificSongsFromArtist = function(ArtistId){
     return $http.get(domain + '/songs/ofArtist/' + ArtistId);
@@ -48,11 +48,11 @@ angular.module('app.songServices', [])
 
   this.deleteSongByArtist = function(artist){
     return $http.delete(domain + '/songs/ByArtistId/' + artist.id, artist );
-  }
+  };
 
   this.deleteSongsByAlbum = function(album){
     return $http.delete(domain + '/songs/ByAlbumId/' + album.id, album);
-  }
+  };
 
 }]);
 
