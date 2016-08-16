@@ -55,6 +55,8 @@ router.post('/', function (req, res) {
     ArtistId : req.body.ArtistId,
     AlbumId : req.body.AlbumId,
     type : req.body.type,
+    totalViews : 0,
+    weeklyViews : 0,
     visibility : false
     })
     .then(function (data) {
@@ -184,7 +186,7 @@ router.delete('/ByAlbumId/:id', function(req, res){
   })
   .then(function(data){
     return res.json(data);
-  })
+  });
 });
 
 router.delete('/ByArtistId/:id', function(req, res){
@@ -195,7 +197,7 @@ router.delete('/ByArtistId/:id', function(req, res){
   })
   .then(function(data){
     return res.json(data);
-  })
+  });
 });
 
 router.delete('/:id', function(req, res){
