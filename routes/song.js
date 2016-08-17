@@ -57,6 +57,10 @@ router.post('/', function (req, res) {
     type : req.body.type,
     totalViews : 0,
     weeklyViews : 0,
+    monthlyViews : 0,
+    memberTotalViews : 0,
+    memberWeeklyViews : 0,
+    memberMonthlyViews : 0,
     visibility : false
     })
     .then(function (data) {
@@ -120,6 +124,36 @@ router.put('/ByArtistId/:id', function(req, res){
   }, {
     where : {
       ArtistId : req.body.id
+    }
+  })
+  .then(function(song){
+    return res.json(song);
+  });
+});
+
+router.put('/weeklyClear', function(req, res){
+  Song.update(
+  {
+    weeklyViews : 0,
+    memberWeeklyViews : 0,
+  }, {
+    where : {
+      id : { gt : 0 }
+    }
+  })
+  .then(function(song){
+    return res.json(song);
+  });
+});
+
+router.put('/monthlyClear', function(req, res){
+  Song.update(
+  {
+    monthlyViews : 0,
+    memberMonthlyViews : 0,
+  }, {
+    where : {
+      id : { gt : 0 }
     }
   })
   .then(function(song){
