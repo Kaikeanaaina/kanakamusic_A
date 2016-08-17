@@ -147,6 +147,22 @@ module.exports = function(sequelize, DataTypes) {
     weeklyViews : {
       type : DataTypes.INTEGER,
       allowNull: true
+    },
+    monthlyViews : {
+      type : DataTypes.INTEGER,
+      allowNull: true
+    },
+    memberTotalViews : {
+      type : DataTypes.INTEGER,
+      allowNull: true
+    },
+    memberWeeklyViews : {
+      type : DataTypes.INTEGER,
+      allowNull: true
+    },
+    memberMonthlyViews : {
+      type : DataTypes.INTEGER,
+      allowNull: true
     }
   }, {
     classMethods: {
