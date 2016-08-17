@@ -64,6 +64,7 @@ app.use('/artists', require('./routes/artist.js'));
 app.use('/albums', require('./routes/album.js'));
 app.use('/recordLabels', require('./routes/recordLabel.js'));
 app.use('/users', require('./routes/user.js'));
+app.use('/dates', require('./routes/theDate.js'));
 
 
 
