@@ -1,6 +1,11 @@
 <ion-view title="Hawaiian Artists" id="page1">
     <ion-content padding="true" class="has-header" ng-init="getAllArtists()">
 
+      <ion-refresher
+        pulling-text="Pull to refresh list..."
+        on-refresh="doRefreshArtistList()">
+      </ion-refresher>
+
 
         <form class="list">
             <a ui-sref="adminMenu.addNewArtist" id="home-button18" class="button button-positive button-small button-block">Add New Artist</a>
