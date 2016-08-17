@@ -2,6 +2,11 @@
 
     <ion-content padding="true" class="has-header" ng-init="getAllSongs()">
 
+      <ion-refresher
+        pulling-text="Pull to refresh list..."
+        on-refresh="doRefreshSongList()">
+      </ion-refresher>
+
 
 
         <form class="list">

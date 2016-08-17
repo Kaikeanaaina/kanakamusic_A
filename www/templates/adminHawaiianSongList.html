@@ -2,6 +2,11 @@
 
     <ion-content padding="true" class="has-header" ng-init="getAllSongs()">
 
+      <ion-refresher
+        pulling-text="Pull to refresh list..."
+        on-refresh="doRefreshSongList()">
+      </ion-refresher>
+
         <form class="list">
             <a ui-sref="adminMenu.addNewSong" id="home-button2" style="font-weight:300;" class="button button-positive button-small button-block" >Add New Song</a>
         </form>
