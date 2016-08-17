@@ -1,8 +1,60 @@
 angular.module('app.Controllers', [])
 
-.controller('kanakaMusicCtrl', function( $scope,$state,$location, $ionicPopup, $rootScope, songService, artistService, albumService, recordLabelService, loginService) {
+.controller('kanakaMusicCtrl', function( $scope,$state,$location, $ionicPopup, $rootScope, songService, artistService, albumService, recordLabelService, dateService, loginService) {
 
   $scope.data = {};
+
+
+
+  $scope.week =null;
+  $scope.month = null;
+
+  // var secondViewTimerChecker = 1000;
+  var minuteViewTimerChecker = 60000;
+  // var halfAnHourViewTimerChecker = 1800000;
+  // var hourViewTimerChecker = 3600000;
+  // var dayViewTimerChecker = 86400000;
+  // var weekViewTimerChecker = 604800000;
+
+  var myVar = setInterval(myTimer, minuteViewTimerChecker);
+
+  function myTimer() {
+    var date = {};
+    date.d = new Date();
+    date.dayOutOfTheWeek = date.d.getDay();
+    date.dayOutOfTheMonth = date.d.getDate();
+
+    dateService.getDaysForViewTimer()
+    .success(function(data){
+
+      if(data[0].dayOutOfTheWeek === 0 && date.d.getDay()===1){
+        dateService.updateWeek(date);
+        songService.clearWeeklyViews();
+      }
+      else if(data[0].dayOutOfTheWeek !== date.d.getDay()){
+        dateService.updateWeek(date);
+      }
+
+      if((data[0].dayOutOfTheMonth === 30 && date.d.getDate()===1)||(data[0].dayOutOfTheMonth === 31 && date.d.getDate()===1)){
+        dateService.updateMonth(date);
+        songService.clearMonthlyViews();
+      } else if(data[0].dayOutOfTheMonth !== date.d.getDate()){
+        dateService.updateMonth(date);
+      }
+
+    });
+
+  }
+
+  $scope.createDate = function(){
+    dateService.createDate()
+    .success(function(data){
+      console.log('created a date in the TheDate table');
+    });
+
+  };
+
+
 
   $scope.login = function() {
     loginService.loginUser($scope.data).success(function(data) {
@@ -248,6 +300,266 @@ angular.module('app.Controllers', [])
   $scope.XRecordLabel = [];
   $scope.YRecordLabel = [];
   $scope.ZRecordLabel = [];
+
+  $scope.doRefreshSongList = function() {
+    songService.getAllSongs()
+    .success(function(data){
+
+    $scope.Song = [];
+    $scope.NumberContemporarySong = [];
+    $scope.AContemporarySong = [];
+    $scope.BContemporarySong = [];
+    $scope.CContemporarySong = [];
+    $scope.DContemporarySong = [];
+    $scope.EContemporarySong = [];
+    $scope.FContemporarySong = [];
+    $scope.GContemporarySong = [];
+    $scope.HContemporarySong = [];
+    $scope.IContemporarySong = [];
+    $scope.JContemporarySong = [];
+    $scope.KContemporarySong = [];
+    $scope.LContemporarySong = [];
+    $scope.MContemporarySong = [];
+    $scope.NContemporarySong = [];
+    $scope.OContemporarySong = [];
+    $scope.PContemporarySong = [];
+    $scope.QContemporarySong = [];
+    $scope.RContemporarySong = [];
+    $scope.SContemporarySong = [];
+    $scope.TContemporarySong = [];
+    $scope.UContemporarySong = [];
+    $scope.VContemporarySong = [];
+    $scope.WContemporarySong = [];
+    $scope.XContemporarySong = [];
+    $scope.YContemporarySong = [];
+    $scope.ZContemporarySong = [];
+
+    $scope.NumberHawaiianSong = [];
+    $scope.AHawaiianSong = [];
+    $scope.BHawaiianSong = [];
+    $scope.CHawaiianSong = [];
+    $scope.DHawaiianSong = [];
+    $scope.EHawaiianSong = [];
+    $scope.FHawaiianSong = [];
+    $scope.GHawaiianSong = [];
+    $scope.HHawaiianSong = [];
+    $scope.IHawaiianSong = [];
+    $scope.JHawaiianSong = [];
+    $scope.KHawaiianSong = [];
+    $scope.LHawaiianSong = [];
+    $scope.MHawaiianSong = [];
+    $scope.NHawaiianSong = [];
+    $scope.OHawaiianSong = [];
+    $scope.PHawaiianSong = [];
+    $scope.QHawaiianSong = [];
+    $scope.RHawaiianSong = [];
+    $scope.SHawaiianSong = [];
+    $scope.THawaiianSong = [];
+    $scope.UHawaiianSong = [];
+    $scope.VHawaiianSong = [];
+    $scope.WHawaiianSong = [];
+    $scope.XHawaiianSong = [];
+    $scope.YHawaiianSong = [];
+    $scope.ZHawaiianSong = [];
+
+    for(var i = 0;i<data.length;i++){
+      var splitTitle = data[i].title.toUpperCase().split("");
+      if(splitTitle[0]==="A"){
+        if(data[i].type==="Hawaiian"){
+          $scope.AHawaiianSong.push(data[i]);
+        }
+        if(data[i].type==="Contemporary"){
+          $scope.AContemporarySong.push(data[i]);
+        }
+      } else if(splitTitle[0]==="B"){
+          if(data[i].type==="Hawaiian"){
+            $scope.BHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.BContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="C"){
+          if(data[i].type==="Hawaiian"){
+            $scope.CHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.CContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="D"){
+          if(data[i].type==="Hawaiian"){
+            $scope.DHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.DContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="E"){
+          if(data[i].type==="Hawaiian"){
+            $scope.EHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.EContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="F"){
+          if(data[i].type==="Hawaiian"){
+            $scope.FHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.FContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="G"){
+          if(data[i].type==="Hawaiian"){
+            $scope.GHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.GContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="H"){
+          if(data[i].type==="Hawaiian"){
+            $scope.HHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.HContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="I"){
+          if(data[i].type==="Hawaiian"){
+            $scope.IHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.IContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="J"){
+          if(data[i].type==="Hawaiian"){
+            $scope.JHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.JContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="K"){
+          if(data[i].type==="Hawaiian"){
+            $scope.KHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.KContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="L"){
+          if(data[i].type==="Hawaiian"){
+            $scope.LHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.LContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="M"){
+          if(data[i].type==="Hawaiian"){
+            $scope.MHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.MContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="N"){
+          if(data[i].type==="Hawaiian"){
+            $scope.NHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.NContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="O"){
+          if(data[i].type==="Hawaiian"){
+            $scope.OHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.OContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="P"){
+          if(data[i].type==="Hawaiian"){
+            $scope.PHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.PContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="Q"){
+          if(data[i].type==="Hawaiian"){
+            $scope.QHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.QContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="R"){
+          if(data[i].type==="Hawaiian"){
+            $scope.RHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.RContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="S"){
+          if(data[i].type==="Hawaiian"){
+            $scope.SHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.SContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="T"){
+          if(data[i].type==="Hawaiian"){
+            $scope.THawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.TContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="U"){
+          if(data[i].type==="Hawaiian"){
+            $scope.UHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.UContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="V"){
+          if(data[i].type==="Hawaiian"){
+            $scope.VHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.VContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="W"){
+          if(data[i].type==="Hawaiian"){
+            $scope.WHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.WContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="X"){
+          if(data[i].type==="Hawaiian"){
+            $scope.XHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.XContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="Y"){
+          if(data[i].type==="Hawaiian"){
+            $scope.YHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.YContemporarySong.push(data[i]);
+          }
+      } else if(splitTitle[0]==="Z"){
+          if(data[i].type==="Hawaiian"){
+            $scope.ZHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.ZContemporarySong.push(data[i]);
+          }
+      } else {
+          if(data[i].type==="Hawaiian"){
+            $scope.NumberHawaiianSong.push(data[i]);
+          }
+          if(data[i].type==="Contemporary"){
+            $scope.NumberContemporarySong.push(data[i]);
+          }
+      }
+    }
+
+    $scope.$broadcast('scroll.refreshComplete');
+
+    });
+  };
 
   $scope.getAllSongs = function(){
     songService.getAllSongs()
