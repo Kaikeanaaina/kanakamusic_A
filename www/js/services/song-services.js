@@ -54,5 +54,13 @@ angular.module('app.songServices', [])
     return $http.delete(domain + '/songs/ByAlbumId/' + album.id, album);
   };
 
+  this.clearWeeklyViews = function(){
+    return $http.put(domain + '/songs/weeklyClear');
+  };
+
+  this.clearMonthlyViews = function(){
+    return $http.put(domain + '/songs/monthlyClear');
+  };
+
 }]);
 
