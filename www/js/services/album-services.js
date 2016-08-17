@@ -39,7 +39,7 @@ angular.module('app.albumServices', [])
   };
 
   this.deleteAlbumByArtist = function(artist){
-    return $http.delete(domain + '/albums/ByArtistId/' + artist.id)
-  }
+    return $http.delete(domain + '/albums/ByArtistId/' + artist.id);
+  };
 
 }]);
