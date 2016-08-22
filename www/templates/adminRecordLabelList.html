@@ -1,6 +1,11 @@
 <ion-view title="RecordLabels" id="page21" ng-init="getAllRecordLabels()">
     <ion-content padding="true" class="has-header">
 
+      <ion-refresher
+        pulling-text="Pull to refresh list..."
+        on-refresh="doRefreshRecordLabelList()">
+      </ion-refresher>
+
         <form class="list">
             <label class="item item-input" name="Search">
                 <i class="icon ion-search placeholder-icon"></i>
