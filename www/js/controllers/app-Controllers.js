@@ -4,8 +4,6 @@ angular.module('app.Controllers', [])
 
   $scope.data = {};
 
-
-
   $scope.week =null;
   $scope.month = null;
 
@@ -17,112 +15,6 @@ angular.module('app.Controllers', [])
   // var weekViewTimerChecker = 604800000;
 
   var myVar = setInterval(myTimer, minuteViewTimerChecker);
-
-  function myTimer() {
-    var date = {};
-    date.d = new Date();
-    date.dayOutOfTheWeek = date.d.getDay();
-    date.dayOutOfTheMonth = date.d.getDate();
-
-    dateService.getDaysForViewTimer()
-    .success(function(data){
-
-      if(data[0].dayOutOfTheWeek === 0 && date.d.getDay()===1){
-        dateService.updateWeek(date);
-        songService.clearWeeklyViews();
-      }
-      else if(data[0].dayOutOfTheWeek !== date.d.getDay()){
-        dateService.updateWeek(date);
-      }
-
-      if((data[0].dayOutOfTheMonth === 30 && date.d.getDate()===1)||(data[0].dayOutOfTheMonth === 31 && date.d.getDate()===1)){
-        dateService.updateMonth(date);
-        songService.clearMonthlyViews();
-      } else if(data[0].dayOutOfTheMonth !== date.d.getDate()){
-        dateService.updateMonth(date);
-      }
-
-    });
-
-  }
-
-  $scope.createDate = function(){
-    dateService.createDate()
-    .success(function(data){
-      console.log('created a date in the TheDate table');
-    });
-
-  };
-
-
-
-  $scope.login = function() {
-    loginService.loginUser($scope.data).success(function(data) {
-        $rootScope.loggedInUser = data;
-        if($rootScope.loggedInUser.type === "haku"){
-          return $state.go('adminMenu.home.HawaiianSong');
-        }
-        if($rootScope.loggedInUser.type === "user"){
-          return $state.go('menu.home.hawaiianSong');
-        }
-        else{
-          console.log('error');
-        }
-    }).error(function(data) {
-        var alertPopup = $ionicPopup.alert({
-            title: 'Login failed!',
-            template: 'Please check your credentials!'
-        });
-    });
-  };
-
-  $scope.registerUser = function(user){
-    $scope.data = {};
-    var myPopup = $ionicPopup.show({
-      template: ' Enter Email <input type="text" ng-model="data.userEmail"><br> Enter Confirm Email <input type="text" ng-model="data.confirmUserEmail"> <br> Enter Password <input type="password" ng-model="data.userPassword"><br>Enter Confirm Password  <input type="password" ng-model="data.confirmPassword" > ',
-      title: 'Register User',
-      subTitle: 'Please use normal things',
-      scope: $scope,
-      buttons: [{
-        text: 'Cancel'
-      }, {
-        text: '<b>Save</b>',
-        type: 'button-positive',
-        onTap: function(e) {
-          if (!$scope.data.userPassword || !$scope.data.userEmail) {
-            //don't allow the user to close unless he enters wifi password
-            e.preventDefault();
-          } else {
-            return $scope.data;
-          }
-        }
-      }, ]
-    });
-
-    myPopup.then(function(res) {
-      if (res) {
-        if(res.userEmail === res.confirmUserEmail && res.userPassword == res.confirmPassword){
-          console.log('credentials matched');
-          //this is where we register
-          //service
-          loginService.registerUser(res)
-          .success(function(data){
-            if(!data.hasOwnProperty('email')){
-              return $state.go('menu.login');
-            } else{
-              $rootScope.loggedInUser = data;
-              return $state.go('menu.home.hawaiianSong');
-            }
-          });
-        } else {
-          console.log('credentials not matched');
-          // this is where the error message will return
-        }
-      } else {
-        console.log('Enter credentials');
-      }
-    });
-  };
 
   $scope.Song = [];
   $scope.NumberContemporarySong = [];
@@ -300,6 +192,108 @@ angular.module('app.Controllers', [])
   $scope.XRecordLabel = [];
   $scope.YRecordLabel = [];
   $scope.ZRecordLabel = [];
+
+  function myTimer() {
+    var date = {};
+    date.d = new Date();
+    date.dayOutOfTheWeek = date.d.getDay();
+    date.dayOutOfTheMonth = date.d.getDate();
+
+    dateService.getDaysForViewTimer()
+    .success(function(data){
+
+      if(data[0].dayOutOfTheWeek === 0 && date.d.getDay()===1){
+        dateService.updateWeek(date);
+        songService.clearWeeklyViews();
+      }
+      else if(data[0].dayOutOfTheWeek !== date.d.getDay()){
+        dateService.updateWeek(date);
+      }
+
+      if((data[0].dayOutOfTheMonth === 30 && date.d.getDate()===1)||(data[0].dayOutOfTheMonth === 31 && date.d.getDate()===1)){
+        dateService.updateMonth(date);
+        songService.clearMonthlyViews();
+      } else if(data[0].dayOutOfTheMonth !== date.d.getDate()){
+        dateService.updateMonth(date);
+      }
+
+    });
+  }
+
+  $scope.createDate = function(){
+    dateService.createDate()
+    .success(function(data){
+      console.log('created a date in the TheDate table');
+    });
+  };
+
+  $scope.login = function() {
+    loginService.loginUser($scope.data).success(function(data) {
+        $rootScope.loggedInUser = data;
+        if($rootScope.loggedInUser.type === "haku"){
+          return $state.go('adminMenu.home.HawaiianSong');
+        }
+        if($rootScope.loggedInUser.type === "user"){
+          return $state.go('menu.home.hawaiianSong');
+        }
+        else{
+          console.log('error');
+        }
+    }).error(function(data) {
+        var alertPopup = $ionicPopup.alert({
+            title: 'Login failed!',
+            template: 'Please check your credentials!'
+        });
+    });
+  };
+
+  $scope.registerUser = function(user){
+    $scope.data = {};
+    var myPopup = $ionicPopup.show({
+      template: ' Enter Email <input type="text" ng-model="data.userEmail"><br> Enter Confirm Email <input type="text" ng-model="data.confirmUserEmail"> <br> Enter Password <input type="password" ng-model="data.userPassword"><br>Enter Confirm Password  <input type="password" ng-model="data.confirmPassword" > ',
+      title: 'Register User',
+      subTitle: 'Please use normal things',
+      scope: $scope,
+      buttons: [{
+        text: 'Cancel'
+      }, {
+        text: '<b>Save</b>',
+        type: 'button-positive',
+        onTap: function(e) {
+          if (!$scope.data.userPassword || !$scope.data.userEmail) {
+            //don't allow the user to close unless he enters wifi password
+            e.preventDefault();
+          } else {
+            return $scope.data;
+          }
+        }
+      }, ]
+    });
+
+    myPopup.then(function(res) {
+      if (res) {
+        if(res.userEmail === res.confirmUserEmail && res.userPassword == res.confirmPassword){
+          console.log('credentials matched');
+          //this is where we register
+          //service
+          loginService.registerUser(res)
+          .success(function(data){
+            if(!data.hasOwnProperty('email')){
+              return $state.go('menu.login');
+            } else{
+              $rootScope.loggedInUser = data;
+              return $state.go('menu.home.hawaiianSong');
+            }
+          });
+        } else {
+          console.log('credentials not matched');
+          // this is where the error message will return
+        }
+      } else {
+        console.log('Enter credentials');
+      }
+    });
+  };
 
   $scope.doRefreshSongList = function() {
     songService.getAllSongs()
@@ -560,6 +554,103 @@ angular.module('app.Controllers', [])
 
     });
   };
+
+  $scope.doRefreshAlbumList = function() {
+    albumService.getAllAlbums()
+    .success(function(data){
+
+      $scope.Album = [];
+      $scope.Albums = [];
+      $scope.NumberAlbum = [];
+      $scope.AAlbum = [];
+      $scope.BAlbum = [];
+      $scope.CAlbum = [];
+      $scope.DAlbum = [];
+      $scope.EAlbum = [];
+      $scope.FAlbum = [];
+      $scope.GAlbum = [];
+      $scope.HAlbum = [];
+      $scope.IAlbum = [];
+      $scope.JAlbum = [];
+      $scope.KAlbum = [];
+      $scope.LAlbum = [];
+      $scope.MAlbum = [];
+      $scope.NAlbum = [];
+      $scope.OAlbum = [];
+      $scope.PAlbum = [];
+      $scope.QAlbum = [];
+      $scope.RAlbum = [];
+      $scope.SAlbum = [];
+      $scope.TAlbum = [];
+      $scope.UAlbum = [];
+      $scope.VAlbum = [];
+      $scope.WAlbum = [];
+      $scope.XAlbum = [];
+      $scope.YAlbum = [];
+      $scope.ZAlbum = [];
+
+      for(var i = 0;i<data.length;i++){
+        $scope.Albums.push(data[i]);
+        var splitTitle = data[i].title.toUpperCase().split("");
+        if(splitTitle[0]==="A"){
+          $scope.AAlbum.push(data[i]);
+        } else if(splitTitle[0]==="B"){
+          $scope.BAlbum.push(data[i]);
+        } else if(splitTitle[0]==="C"){
+          $scope.CAlbum.push(data[i]);
+        } else if(splitTitle[0]==="D"){
+          $scope.DAlbum.push(data[i]);
+        } else if(splitTitle[0]==="E"){
+          $scope.EAlbum.push(data[i]);
+        } else if(splitTitle[0]==="F"){
+          $scope.FAlbum.push(data[i]);
+        } else if(splitTitle[0]==="G"){
+          $scope.GAlbum.push(data[i]);
+        } else if(splitTitle[0]==="H"){
+          $scope.HAlbum.push(data[i]);
+        } else if(splitTitle[0]==="I"){
+          $scope.IAlbum.push(data[i]);
+        } else if(splitTitle[0]==="J"){
+          $scope.JAlbum.push(data[i]);
+        } else if(splitTitle[0]==="K"){
+          $scope.KAlbum.push(data[i]);
+        } else if(splitTitle[0]==="L"){
+          $scope.LAlbum.push(data[i]);
+        } else if(splitTitle[0]==="M"){
+          $scope.MAlbum.push(data[i]);
+        } else if(splitTitle[0]==="N"){
+          $scope.NAlbum.push(data[i]);
+        } else if(splitTitle[0]==="O"){
+          $scope.OAlbum.push(data[i]);
+        } else if(splitTitle[0]==="P"){
+          $scope.PAlbum.push(data[i]);
+        } else if(splitTitle[0]==="Q"){
+          $scope.QAlbum.push(data[i]);
+        } else if(splitTitle[0]==="R"){
+          $scope.RAlbum.push(data[i]);
+        } else if(splitTitle[0]==="S"){
+          $scope.SAlbum.push(data[i]);
+        } else if(splitTitle[0]==="T"){
+          $scope.TAlbum.push(data[i]);
+        } else if(splitTitle[0]==="U"){
+          $scope.UAlbum.push(data[i]);
+        } else if(splitTitle[0]==="V"){
+          $scope.VAlbum.push(data[i]);
+        } else if(splitTitle[0]==="W"){
+          $scope.WAlbum.push(data[i]);
+        } else if(splitTitle[0]==="X"){
+          $scope.XAlbum.push(data[i]);
+        } else if(splitTitle[0]==="Y"){
+          $scope.YAlbum.push(data[i]);
+        } else if(splitTitle[0]==="Z"){
+          $scope.ZAlbum.push(data[i]);
+        } else {
+          $scope.NumberAlbum.push(data[i]);
+        }
+      }
+      $scope.$broadcast('scroll.refreshComplete');
+    })
+  }
 
   $scope.doRefreshArtistList = function() {
     artistService.getAllArtists()
@@ -822,6 +913,104 @@ angular.module('app.Controllers', [])
     $scope.$broadcast('scroll.refreshComplete');
 
     });
+  };
+
+  $scope.doRefreshRecordLabelList = function() {
+    recordLabelService.getAllRecordLabels()
+    .success(function(data){
+      $scope.RecordLabel = [];
+      $scope.RecordLabels = [];
+      $scope.NumberRecordLabel = [];
+      $scope.ARecordLabel = [];
+      $scope.BRecordLabel = [];
+      $scope.CRecordLabel = [];
+      $scope.DRecordLabel = [];
+      $scope.ERecordLabel = [];
+      $scope.FRecordLabel = [];
+      $scope.GRecordLabel = [];
+      $scope.HRecordLabel = [];
+      $scope.IRecordLabel = [];
+      $scope.JRecordLabel = [];
+      $scope.KRecordLabel = [];
+      $scope.LRecordLabel = [];
+      $scope.MRecordLabel = [];
+      $scope.NRecordLabel = [];
+      $scope.ORecordLabel = [];
+      $scope.PRecordLabel = [];
+      $scope.QRecordLabel = [];
+      $scope.RRecordLabel = [];
+      $scope.SRecordLabel = [];
+      $scope.TRecordLabel = [];
+      $scope.URecordLabel = [];
+      $scope.VRecordLabel = [];
+      $scope.WRecordLabel = [];
+      $scope.XRecordLabel = [];
+      $scope.YRecordLabel = [];
+      $scope.ZRecordLabel = [];
+
+      for(var i = 0;i<data.length;i++){
+        $scope.RecordLabels.push(data[i]);
+        var splitName = data[i].name.toUpperCase().split("");
+        if(splitName[0]==="A"){
+          $scope.ARecordLabel.push(data[i]);
+        } else if(splitName[0]==="B"){
+          $scope.BRecordLabel.push(data[i]);
+        } else if(splitName[0]==="C"){
+          $scope.CRecordLabel.push(data[i]);
+        } else if(splitName[0]==="D"){
+          $scope.DRecordLabel.push(data[i]);
+        } else if(splitName[0]==="E"){
+          $scope.ERecordLabel.push(data[i]);
+        } else if(splitName[0]==="F"){
+          $scope.FRecordLabel.push(data[i]);
+        } else if(splitName[0]==="G"){
+          $scope.GRecordLabel.push(data[i]);
+        } else if(splitName[0]==="H"){
+          $scope.HRecordLabel.push(data[i]);
+        } else if(splitName[0]==="I"){
+          $scope.IRecordLabel.push(data[i]);
+        } else if(splitName[0]==="J"){
+          $scope.JRecordLabel.push(data[i]);
+        } else if(splitName[0]==="K"){
+          $scope.KRecordLabel.push(data[i]);
+        } else if(splitName[0]==="L"){
+          $scope.LRecordLabel.push(data[i]);
+        } else if(splitName[0]==="M"){
+          $scope.MRecordLabel.push(data[i]);
+        } else if(splitName[0]==="N"){
+          $scope.NRecordLabel.push(data[i]);
+        } else if(splitName[0]==="O"){
+          $scope.ORecordLabel.push(data[i]);
+        } else if(splitName[0]==="P"){
+          $scope.PRecordLabel.push(data[i]);
+        } else if(splitName[0]==="Q"){
+          $scope.QRecordLabel.push(data[i]);
+        } else if(splitName[0]==="R"){
+          $scope.RRecordLabel.push(data[i]);
+        } else if(splitName[0]==="S"){
+          $scope.SRecordLabel.push(data[i]);
+        } else if(splitName[0]==="T"){
+          $scope.TRecordLabel.push(data[i]);
+        } else if(splitName[0]==="U"){
+          $scope.URecordLabel.push(data[i]);
+        } else if(splitName[0]==="V"){
+          $scope.VRecordLabel.push(data[i]);
+        } else if(splitName[0]==="W"){
+          $scope.WRecordLabel.push(data[i]);
+        } else if(splitName[0]==="X"){
+          $scope.XRecordLabel.push(data[i]);
+        } else if(splitName[0]==="Y"){
+          $scope.YRecordLabel.push(data[i]);
+        } else if(splitName[0]==="Z"){
+          $scope.ZRecordLabel.push(data[i]);
+        } else {
+          $scope.NumberRecordLabel.push(data[i]);
+        }
+      }
+
+      $scope.$broadcast('scroll.refreshComplete');
+
+    })
   };
 
   $scope.getAllSongs = function(){
