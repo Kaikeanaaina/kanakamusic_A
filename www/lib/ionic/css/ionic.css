@@ -3399,6 +3399,12 @@ body.grade-c {
   -webkit-transform-origin: left top;
   transform-origin: left top; }
 
+
+.meaInvisible {
+  background-color: #f5b1b1;
+}
+
+
 /**
  * Set ms-viewport to prevent MS "page squish" and allow fluid scrolling
  * https://msdn.microsoft.com/en-us/library/ie/hh869615(v=vs.85).aspx

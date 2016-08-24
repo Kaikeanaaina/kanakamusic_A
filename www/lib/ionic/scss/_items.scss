@@ -17,6 +17,7 @@
   border-style: solid;
   font-size: $item-font-size;
 
+
   h2 {
     margin: 0 0 2px 0;
     font-size: 16px;
@@ -49,6 +50,15 @@
   p:last-child {
     margin-bottom: 0;
   }
+
+  .meaInvisible {
+    background-color: #f5b1b1;
+  }
+
+  .meaVisibible {
+    background-color: #ffffff;
+  }
+
 
   // Align badges within items
   .badge {
