@@ -21,9 +21,11 @@
         <ion-list>
             <ion-item class="item-divider">#</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in NumberAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
@@ -31,9 +33,11 @@
             <ion-item class="item-divider">A</ion-item>
 
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in AAlbum | orderBy:'title'">
-                <div class="row responsive-sm">
+                <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                   <div>
-                    <a>{{album.title}}</a>
+                    <a>
+                      <h2>{{album.title}}</h2>
+                    </a>
                   </div>
                 </div>
             </ion-item>
@@ -41,18 +45,22 @@
             <ion-item class="item-divider">B</ion-item>
 
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in BAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">C</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in CAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
@@ -60,207 +68,253 @@
             <ion-item class="item-divider">D</ion-item>
 
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in DAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">E</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in EAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">F</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in FAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">G</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in GAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">H</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in HAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">I</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in IAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">J</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in JAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">K</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in KAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">L</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in LAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">M</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in MAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">N</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in NAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">O</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in OAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">P</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in PAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">Q</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in QAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">R</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in RAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">S</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in SAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">T</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in TAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">U</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in UAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">V</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in VAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">W</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in WAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">X</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in XAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">Y</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in YAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>
 
             <ion-item class="item-divider">Z</ion-item>
             <ion-item ng-href="/#/adminSide-menu/album/{{album.id}}" ng-repeat="album in ZAlbum | orderBy:'title'">
-              <div class="row responsive-sm">
+              <div ng-class="{'meaInvisible' : album.visibility === false}" class="row responsive-sm">
                 <div>
-                  <a>{{album.title}}</a>
+                  <a>
+                    <h2>{{album.title}}</h2>
+                  </a>
                 </div>
               </div>
             </ion-item>

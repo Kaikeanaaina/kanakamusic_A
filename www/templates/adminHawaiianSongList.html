@@ -15,6 +15,10 @@
             <a style="font-weight:300;" class="button button-positive button-small button-block" ng-click="createDate()">create date</a>
         </form>
 
+<!--         <form class="list">
+            <a style="font-weight:300;" class="button button-positive button-small button-block" ng-click="revealHiddenSongs()">REVEAL</a>
+        </form> -->
+
         <form class="list">
             <label class="item item-input" name="Search">
                 <i class="icon ion-search placeholder-icon"></i>
@@ -25,8 +29,8 @@
         <ion-list>
             <ion-item class="item-divider">#</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in NumberHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -37,8 +41,8 @@
             <ion-item class="item-divider">A</ion-item>
 
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in AHawaiianSong | orderBy:'title'">
-                <div class="row responsive-sm">
-                  <div>
+                <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                  <div class="naMele">
                     <a>
                       <h2>{{song.title}}</h2>
                     </a>
@@ -49,8 +53,8 @@
             <ion-item class="item-divider">B</ion-item>
 
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in BHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -60,8 +64,8 @@
 
             <ion-item class="item-divider">C</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in CHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -72,8 +76,8 @@
             <ion-item class="item-divider">D</ion-item>
 
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in DHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -83,8 +87,8 @@
 
             <ion-item class="item-divider">E</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in EHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -94,8 +98,8 @@
 
             <ion-item class="item-divider">F</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in FHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -105,8 +109,8 @@
 
             <ion-item class="item-divider">G</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in GHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -116,8 +120,8 @@
 
             <ion-item class="item-divider">H</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in HHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -127,8 +131,8 @@
 
             <ion-item class="item-divider">I</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in IHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -138,8 +142,8 @@
 
             <ion-item class="item-divider">J</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in JHAwaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -149,8 +153,8 @@
 
             <ion-item class="item-divider">K</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in KHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -160,8 +164,8 @@
 
             <ion-item class="item-divider">L</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in LHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -171,8 +175,8 @@
 
             <ion-item class="item-divider">M</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in MHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -182,8 +186,8 @@
 
             <ion-item class="item-divider">N</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in NHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -193,8 +197,8 @@
 
             <ion-item class="item-divider">O</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in OHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -204,8 +208,8 @@
 
             <ion-item class="item-divider">P</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in PHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -215,8 +219,8 @@
 
             <ion-item class="item-divider">Q</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in QHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -226,8 +230,8 @@
 
             <ion-item class="item-divider">R</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in RHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -237,8 +241,8 @@
 
             <ion-item class="item-divider">S</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in SHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -248,8 +252,8 @@
 
             <ion-item class="item-divider">T</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in THawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -259,8 +263,8 @@
 
             <ion-item class="item-divider">U</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in UHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -270,8 +274,8 @@
 
             <ion-item class="item-divider">V</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in VHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -281,8 +285,8 @@
 
             <ion-item class="item-divider">W</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in WHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -292,8 +296,8 @@
 
             <ion-item class="item-divider">X</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in XHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -303,8 +307,8 @@
 
             <ion-item class="item-divider">Y</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in YHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
@@ -314,8 +318,8 @@
 
             <ion-item class="item-divider">Z</ion-item>
             <ion-item ng-href="/#/adminSide-menu/song/content/{{song.id}}" ng-repeat="song in ZHawaiianSong | orderBy:'title'">
-              <div class="row responsive-sm">
-                <div>
+              <div ng-class="{'meaInvisible' : song.visibility === false}" class="row responsive-sm">
+                <div class="naMele">
                   <a>
                     <h2>{{song.title}}</h2>
                   </a>
