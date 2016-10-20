@@ -42,6 +42,7 @@ module.exports = function(sequelize, DataTypes) {
         Artist.hasMany(models.Album);
         Artist.hasMany(models.Song);
         Artist.hasMany(models.Gigs);
+        Artist.hasMany(models.BandMember);
       }
     }
   });
