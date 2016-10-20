@@ -233,12 +233,32 @@ angular.module('app', ['ionic','app.routes', 'app.Controllers', 'app.songService
     }
   })
 
+  .state('adminMenu.bandMembers', {
+    url: '/artist/bandMembers/:id',
+    views: {
+      'side-menu20': {
+        templateUrl: 'templates/adminBandMembers.html',
+        controller: 'kanakaMusicCtrl'
+      }
+    }
+  })
+
+  .state('adminMenu.addNewBandMember', {
+    url: '/addNewBandMembers',
+    views: {
+      'side-menu20': {
+        templateUrl: 'templates/adminAddNewBandMember.html',
+        controller: 'kanakaMusicCtrl'
+      }
+    }
+  })
+
   .state('menu.bandMembers', {
-    url: '/artist/:id/members',
+    url: '/artist/bandMembers/:id',
     views: {
       'side-menu21': {
         templateUrl: 'templates/bandMembers.html',
-        controller: 'bandMemberCtrl'
+        controller: 'kanakaMusicCtrl'
       }
     }
   })
