@@ -1,0 +1,36 @@
+<ion-view title="Add New Band Member" id="page6" ng-init="getAllArtists()">
+    <ion-content padding="true" class="has-header">
+        <form class="list">
+
+            <label class="item item-input" name="bandMemberName" for="name">
+                <span class="input-label">Band Member Name</span>
+                <input type="text" placeholder="band member name" id="name" ng-model="bandMember.name">
+            </label>
+
+            <div class="spacer" style="width: 300px; height: 15px;"></div>
+
+            <label class="item item-select" name="artist">
+                <span class="input-label">Artist</span>
+                <select ng-model="bandMember.ArtistId">
+                    <option ng-repeat="artist in Artists | orderBy:'name'"  ng-value="{{artist.id}}" value="{{artist.id}}">{{artist.name}}</option>
+                </select>
+            </label>
+
+            <a ui-sref="adminMenu.addNewArtist" id="addNewSong-button3" style="font-weight:300;" class="button button-positive button-small button-block">Add New Artist</a>
+
+            <label class="item item-input" name="instrument" for="instrument">
+                <span class="input-label">Instrument</span>
+                <textarea placeholder="instrument" ng-model="bandMember.instrument"> </textarea>
+            </label>
+
+            <div class="spacer" style="width: 300px; height: 8px;"></div>
+
+            <label class="item item-input" name="howYouStartedToPlayMusic" for="howYouStartedToPlayMusic">
+                <span class="input-label">How You Started To Play Music</span>
+                <input type="text" placeholder="How You Started To Play Music" id="howYouStartedToPlayMusic" ng-model="bandMember.howYouStartedToPlayMusic">
+            </label>
+
+            <a id="addNewBandMember-button5" style="font-weight:600;" class="button button-positive  button-block" ng-click="addBandMember(bandMember); bandMember = null">Submit New Song</a>
+        </form>
+    </ion-content>
+</ion-view>
